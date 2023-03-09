@@ -1,0 +1,19 @@
+{
+  "name": "pixema",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikalaiMikhailavich/Pixema.git"
+  },
+  "author": "Nikolai Vegera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikalaiMikhailavich/Pixema/issues"
+  },
+  "homepage": "https://github.com/mikalaiMikhailavich/Pixema#readme"
+}
