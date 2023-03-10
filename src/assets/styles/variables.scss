@@ -1,0 +1,66 @@
+// colors
+//system colors
+$primary: #7b61ff;
+$primary2: #917cff;
+$secondary: #80858b;
+//background colors
+$background-black: #000000;
+$background-dark: #242426;
+$background-graphite: #323537;
+//contextual colors
+$error: #ff5154;
+$light: #afb2b6;
+$white: #ffffff;
+//tertiary colors
+$green: #00a340;
+$yellow: #f3a608;
+$orange: #f45d2d;
+
+// font-sizes
+
+$h1: 40px;
+$h2: 24px;
+$h3: 20px;
+$subline1: 18px;
+$subline2: 16px;
+$subline1: 16px;
+$p: 16px;
+// inputs
+
+$input-height: 56px;
+
+//paddings
+
+$padding-level1: 64px;
+$padding-level2: 56px;
+$padding-level3: 48px;
+$padding-level4: 40px;
+$padding-level5: 32px;
+$padding-level6: 24px;
+$padding-level7: 20px;
+$padding-level8: 16px;
+$padding-level9: 8px;
+
+@media (max-width: 768px) {
+  $padding-level1: 56px;
+  $padding-level2: 48px;
+  $padding-level3: 48px;
+  $padding-level4: 40px;
+  $padding-level5: 32px;
+  $padding-level6: 24px;
+  $padding-level7: 20px;
+  $padding-level8: 16px;
+  $padding-level9: 8px;
+}
+
+@media (max-width: 320px) {
+  $padding-level1: 48px;
+  $padding-level2: 40px;
+  $padding-level3: 40px;
+  $padding-level4: 32px;
+  $padding-level5: 24px;
+  $padding-level6: 20px;
+  $padding-level7: 16px;
+  $padding-level8: 16px;
+  $padding-level9: 8px;
+}
