@@ -4,11 +4,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    index: { import: "./src/index.ts" },
+    index: "./src/index.tsx",
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Pixema",
+      template: path.join(__dirname, "public", "index.html"),
     }),
   ],
   devtool: "inline-source-map",
@@ -51,4 +51,5 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
+  exclude: ["node_modules", "dist"],
 };
