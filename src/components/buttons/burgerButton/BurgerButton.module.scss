@@ -1,0 +1,18 @@
+@import "../../../assets/styles/variables";
+.container {
+  width: 56px;
+  height: 56px;
+  background-color: $primary;
+}
+
+.burgerItem {
+  height: 3px;
+  background-color: black;
+}
+
+.burgerItemtop {
+  background-color: pink;
+}
+.top {
+  background-color: pink;
+}

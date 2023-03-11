@@ -51,5 +51,5 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
-  exclude: ["node_modules", "dist"],
+  // exclude: ["node_modules", "dist"],
 };

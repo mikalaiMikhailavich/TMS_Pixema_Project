@@ -1,11 +1,7 @@
-import Input from "./components/input/Input";
-
+import Header from "./components/header/Header";
+import "./assets/styles/main.scss";
 const App = () => {
-  return (
-    <div>
-      <Input />
-    </div>
-  );
+  return <Header />;
 };
 
 export default App;

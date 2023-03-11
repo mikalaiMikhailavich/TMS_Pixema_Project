@@ -1,0 +1,23 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+.light-theme {
+  background-color: #f3f3f3;
+  color: #313037;
+}
+
+.dark-theme {
+  background-color: #313037;
+  color: #f3f3f3;
+}
+
+html,
+body {
+  height: 100%;
+}
