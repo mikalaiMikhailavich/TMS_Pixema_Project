@@ -1,18 +1,41 @@
 @import "../../../assets/styles/variables";
+
+$burgerItemHeight: 2px;
+
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
   width: 56px;
   height: 56px;
   background-color: $primary;
+  cursor: pointer;
+}
+
+.burgerItemContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 16px;
 }
 
 .burgerItem {
-  height: 3px;
-  background-color: black;
+  background-color: $white;
+  height: $burgerItemHeight;
+  transition: all 0.2s ease;
 }
 
 .burgerItemtop {
-  background-color: pink;
+  position: relative;
+  top: 6px;
+  transform: rotate(-45deg);
 }
-.top {
-  background-color: pink;
+.burgerItemmiddle {
+  opacity: 0;
+}
+.burgerItembottom {
+  position: relative;
+  bottom: 6px;
+  transform: rotate(45deg);
 }
