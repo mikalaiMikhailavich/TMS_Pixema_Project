@@ -1,0 +1,14 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+.input {
+  @include font-settings($p, 500, $secondary);
+  height: $input-height;
+  width: 100%;
+  border-radius: 4px;
+  outline: none;
+  border: 2px solid $light;
+  padding-left: 18px;
+}
+
+// .input_dark-theme {
+// }

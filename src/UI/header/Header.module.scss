@@ -1,0 +1,23 @@
+@import "../../assets/styles/variables.scss";
+.container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-top: $padding-level4;
+}
+
+.searchInput {
+  max-width: calc(($columnWidth * 4) + ($gap * 3));
+  flex: 1 1;
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .searchInput {
+    flex: 1 0 100%;
+    order: 2;
+  }
+}

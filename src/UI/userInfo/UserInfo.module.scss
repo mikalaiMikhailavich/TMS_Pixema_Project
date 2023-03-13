@@ -1,0 +1,70 @@
+@import "../../assets/styles/variables.scss";
+
+.accountInfo {
+  max-width: 266px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.accountCapitals {
+  background-color: $primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+}
+
+.accountName {
+  margin: 0 auto;
+}
+.arrow {
+  transition: all 0.2s ease-in;
+}
+
+.rotatedArrow {
+  transform: rotate(90deg);
+}
+
+.dropDown {
+  position: absolute;
+  width: 100%;
+  top: 66px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  color: $white;
+  height: 56px;
+  width: 100%;
+  background-color: $background-graphite;
+  padding-left: 20px;
+  border-bottom: 1px solid $light;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: $primary;
+  }
+
+  &:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  &:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .accountInfo {
+    display: none;
+  }
+}

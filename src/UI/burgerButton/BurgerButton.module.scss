@@ -1,9 +1,9 @@
-@import "../../../assets/styles/variables";
+@import "../../assets/styles/variables.scss";
 
 $burgerItemHeight: 2px;
 
 .container {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
@@ -38,4 +38,15 @@ $burgerItemHeight: 2px;
   position: relative;
   bottom: 6px;
   transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+  }
+}
+@media (max-width: 650px) {
+  .container {
+    margin-left: auto;
+  }
 }

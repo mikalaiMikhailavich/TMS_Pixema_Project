@@ -1,7 +1,11 @@
-import Header from "./components/header/Header";
 import "./assets/styles/main.scss";
+import Layout from "./components/layout/Layout";
 const App = () => {
-  return <Header />;
+  return (
+    <>
+      <Layout />
+    </>
+  );
 };
 
 export default App;

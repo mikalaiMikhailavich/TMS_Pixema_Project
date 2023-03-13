@@ -1,10 +1,10 @@
 @import "variables";
-
+@import "mixins";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid red; */
+  @include font-settings($p, 400, $background-dark);
 }
 
 .light-theme {
@@ -20,4 +20,19 @@
 html,
 body {
   height: 100%;
+}
+
+.container {
+  // max-width: 1920px;
+  padding: 0 62px;
+}
+
+.column-width {
+  width: calc(100% / 6);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

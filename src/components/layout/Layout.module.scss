@@ -1,0 +1,10 @@
+@import "../../assets/styles/variables.scss";
+.layoutContainer {
+  display: flex;
+  gap: 40px;
+}
+
+.right {
+  flex: 1 1;
+  max-width: $columnWidth;
+}

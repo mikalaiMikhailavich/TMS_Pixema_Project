@@ -1,4 +1,4 @@
-// colors
+@import "./mixins.scss"; // colors
 //system colors
 $primary: #7b61ff;
 $primary2: #917cff;
@@ -41,26 +41,43 @@ $padding-level7: 20px;
 $padding-level8: 16px;
 $padding-level9: 8px;
 
-@media (max-width: 768px) {
-  $padding-level1: 56px;
-  $padding-level2: 48px;
-  $padding-level3: 48px;
-  $padding-level4: 40px;
-  $padding-level5: 32px;
-  $padding-level6: 24px;
-  $padding-level7: 20px;
-  $padding-level8: 16px;
-  $padding-level9: 8px;
-}
+// @media (max-width: 768px) {
+//   $padding-level1: 56px;
+//   $padding-level2: 48px;
+//   $padding-level3: 48px;
+//   $padding-level4: 40px;
+//   $padding-level5: 32px;
+//   $padding-level6: 24px;
+//   $padding-level7: 20px;
+//   $padding-level8: 16px;
+//   $padding-level9: 8px;
+// }
 
-@media (max-width: 320px) {
-  $padding-level1: 48px;
-  $padding-level2: 40px;
-  $padding-level3: 40px;
-  $padding-level4: 32px;
-  $padding-level5: 24px;
-  $padding-level6: 20px;
-  $padding-level7: 16px;
-  $padding-level8: 16px;
-  $padding-level9: 8px;
+// @media (max-width: 320px) {
+//   $padding-level1: 48px;
+//   $padding-level2: 40px;
+//   $padding-level3: 40px;
+//   $padding-level4: 32px;
+//   $padding-level5: 24px;
+//   $padding-level6: 20px;
+//   $padding-level7: 16px;
+//   $padding-level8: 16px;
+//   $padding-level9: 8px;
+// }
+
+// widths
+
+$width: 1920px;
+$columnWidth: 266px;
+$totalColumns: 6;
+$totalGaps: calc($totalColumns - 1);
+$gap: 40px;
+$padding: calc(
+  ($width - (($totalColumns * $columnWidth) + ($totalGaps * $gap))) / 2
+);
+
+$columnWidth: 266px;
+
+@media screen and (min-width: 768px) {
+  $columnWidth: 100px;
 }
