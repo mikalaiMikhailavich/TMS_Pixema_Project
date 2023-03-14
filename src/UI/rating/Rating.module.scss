@@ -1,0 +1,23 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.container {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 28px;
+  @include font-settings($p, 600, $white);
+  background-color: $green;
+  border-radius: 6px;
+}
+
+.middleRating {
+  background-color: $yellow;
+}
+.badRating {
+  background-color: $orange;
+}

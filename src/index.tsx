@@ -1,6 +1,6 @@
-import React from "react";
-
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 // import { PersistGate } from "redux-persist/integration/react";
 import App from "./App";
 
@@ -9,9 +9,7 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
-    {/* <PersistGate loading={null}> */}
+  <BrowserRouter>
     <App />
-    {/* </PersistGate> */}
-  </React.StrictMode>
+  </BrowserRouter>
 );

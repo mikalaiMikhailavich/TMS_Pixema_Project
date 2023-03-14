@@ -11,6 +11,18 @@
   flex: 1 1;
 }
 
+.userInfoContainer {
+  width: 100%;
+  max-width: 266px;
+  min-width: 150px;
+}
+
+@media screen and (max-width: 1000px) {
+  .userInfoContainer {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 650px) {
   .container {
     flex-wrap: wrap;

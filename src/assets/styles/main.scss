@@ -20,19 +20,35 @@
 html,
 body {
   height: 100%;
+  // margin: 0 auto;
 }
 
 .container {
-  // max-width: 1920px;
+  max-width: 1920px;
+  width: 100%;
   padding: 0 62px;
+  margin: 0 auto;
 }
 
 .column-width {
   width: calc(100% / 6);
+  max-width: 266px;
+  min-width: 150px;
+}
+
+.column-width5 {
+  width: calc(100% / 6 * 5);
+  max-width: 1530px;
 }
 
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+@media screen and (max-width: 1000px) {
+  .column-width5 {
+    width: 100%;
+  }
 }

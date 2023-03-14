@@ -1,0 +1,15 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  @include font-settings($p, 500, $light);
+  &:not(:last-child):after {
+    content: " • ";
+    margin-right: 6px;
+  }
+}

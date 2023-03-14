@@ -1,10 +1,13 @@
+import { Route, Routes } from "react-router-dom";
 import "./assets/styles/main.scss";
 import Layout from "./components/layout/Layout";
 const App = () => {
   return (
-    <>
-      <Layout />
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="film/:id" />
+      </Route>
+    </Routes>
   );
 };
 

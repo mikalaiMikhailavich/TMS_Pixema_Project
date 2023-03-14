@@ -29,10 +29,7 @@ const UserInfo = (props: IProps) => {
   const firstLetterName = firstCapitalLetter(name);
 
   return (
-    <div
-      className={`column-width ${styles.accountInfo}`}
-      onClick={toogleUserMenu}
-    >
+    <div className={styles.accountInfo} onClick={toogleUserMenu}>
       <div className={styles.accountCapitals}>{firstLetterName}</div>
       <div className={styles.accountName}>{name}</div>
       <div

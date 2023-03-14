@@ -19,7 +19,9 @@ const Header = () => {
               onChange={inputSearch.onChange}
             />
           </div>
-          <UserInfo name={"Axscsc"} />
+          <div className={styles.userInfoContainer}>
+            <UserInfo name={"Axscsc"} />
+          </div>
           <BurgerButton />
         </div>
       </div>

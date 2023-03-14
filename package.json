@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
+    "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0",
