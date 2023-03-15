@@ -1,0 +1,12 @@
+.slider {
+  overflow: hidden;
+}
+.slides {
+  display: flex;
+  gap: 30px;
+}
+
+.slide {
+  width: 266px;
+  transition: all 0.5s ease;
+}

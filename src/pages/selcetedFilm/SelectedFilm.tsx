@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Slider from "../../components/Slider/Slider";
+import { getFilmNew } from "../../helpers/getNewFilms";
 import { getSelectedFilm } from "../../helpers/getSelectedFilm";
 import { IMovie } from "../../services/types";
 import Actors from "../../UI/actors/Actors";
@@ -15,16 +17,19 @@ const SelectedFilm = () => {
   const params = useParams();
   const cardId = params.id;
   const [selectedFilm, setSelectedFilm] = useState<IMovie>({} as IMovie);
-
+  const [card, setCard] = useState<any>([]);
   useEffect(() => {
     if (cardId) {
       getSelectedFilm(cardId).then((movie: any) => {
         console.log(movie.data);
-
         setSelectedFilm(movie.data);
       });
     }
-  }, []);
+    getFilmNew().then((data) => {
+      setCard(data.data);
+      console.log(data.data);
+    });
+  }, [cardId]);
 
   const {
     type,
@@ -63,6 +68,7 @@ const SelectedFilm = () => {
         <Country countries={countries} />
         <BoxOffice fees={fees} />
         <Actors persons={persons} />
+        <Slider cards={card} />
       </div>
     </div>
   );

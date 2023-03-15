@@ -1,13 +1,11 @@
 import cn from "classnames";
 import styles from "./Rating.module.scss";
-
 interface IProps {
   rating: number;
 }
 
 const Rating = (props: IProps) => {
   const { rating } = props;
-  console.log(rating);
 
   if (rating === undefined) {
     return null;

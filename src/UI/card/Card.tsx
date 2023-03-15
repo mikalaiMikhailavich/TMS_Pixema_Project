@@ -1,6 +1,3 @@
-// interface IProps {
-//   filmItem: any;
-// }
 import { useNavigate } from "react-router-dom";
 import Genres from "../genres/Genres";
 import Rating from "../rating/Rating";
@@ -22,10 +19,9 @@ const Card = (props: any) => {
   //       break;
   //   }
   // };
-  console.log(genres);
 
   const navigateToSelectedCard = (id: number) => {
-    navigate(`film/${id}`);
+    navigate(`/film/${id}`);
   };
 
   return (
