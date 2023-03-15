@@ -1,22 +1,45 @@
 // interface IProps {
 //   filmItem: any;
 // }
+import { useNavigate } from "react-router-dom";
 import Genres from "../genres/Genres";
 import Rating from "../rating/Rating";
 import styles from "./Card.module.scss";
 const Card = (props: any) => {
   const { filmItem } = props;
-  const { name, poster, rating, genres, similarMovies } = filmItem;
+  const { id, name, poster, rating, genres, similarMovies } = filmItem;
   const { previewUrl } = poster;
   const { kp } = rating;
+  const navigate = useNavigate();
+
+  // const navigateToSelectedCard = (type = "film") => {
+  //   switch (type) {
+  //     case "film":
+  //       navigate("/");
+  //       break;
+
+  //     default:
+  //       break;
+  //   }
+  // };
+  console.log(genres);
+
+  const navigateToSelectedCard = (id: number) => {
+    navigate(`film/${id}`);
+  };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      onClick={() => navigateToSelectedCard(id)}
+    >
       <div
         className={styles.poster}
         style={{ backgroundImage: `url(${previewUrl})` }}
       >
-        <Rating rating={kp} />
+        <div className={styles.ratingContainer}>
+          <Rating rating={kp} />
+        </div>
       </div>
       <h4 className={styles.cardName}>{name}</h4>
       <Genres genres={genres} />

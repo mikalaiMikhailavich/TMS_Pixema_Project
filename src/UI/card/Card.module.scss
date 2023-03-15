@@ -3,6 +3,7 @@
 
 .container {
   max-width: 266px;
+  cursor: pointer;
 }
 
 .poster {
@@ -11,6 +12,12 @@
   background-position: 50%;
   background-size: cover;
   border-radius: 20px;
+}
+
+.ratingContainer {
+  position: relative;
+  top: 20px;
+  left: 20px;
 }
 
 .cardName {

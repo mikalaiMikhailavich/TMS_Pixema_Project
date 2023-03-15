@@ -1,8 +1,5 @@
+import { IGenres } from "../../services/types";
 import styles from "./Genres.module.scss";
-
-interface IGenres {
-  name: string;
-}
 
 interface IProps {
   genres: IGenres[];
@@ -10,6 +7,10 @@ interface IProps {
 
 const Genres = (props: IProps) => {
   const { genres } = props;
+
+  if (genres === undefined) {
+    return null;
+  }
 
   const slicedGenres = genres.slice(0, 4);
   return (

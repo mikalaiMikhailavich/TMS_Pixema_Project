@@ -7,6 +7,12 @@ interface IProps {
 
 const Rating = (props: IProps) => {
   const { rating } = props;
+  console.log(rating);
+
+  if (rating === undefined) {
+    return null;
+  }
+
   const rounding = (raitng: number) => raitng.toFixed(1);
 
   const style = cn(styles.container, {

@@ -1,0 +1,13 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.container {
+  background-color: $light;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 73px;
+  min-height: 28px;
+  @include font-settings($p, 600, white);
+}
