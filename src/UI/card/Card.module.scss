@@ -2,26 +2,29 @@
 @import "../../assets/styles/mixins.scss";
 
 .container {
-  // max-width: 266px;
+  position: relative;
+  // width: 220px;
   cursor: pointer;
-  width: 200px;
+  &:hover {
+    .cardName {
+      color: $primary;
+    }
+  }
 }
 
 .poster {
-  //   width: 266px;
-  height: 357px;
-  background-position: 50%;
-  background-size: cover;
   border-radius: 20px;
+  height: 350px;
 }
 
 .ratingContainer {
-  position: relative;
+  position: absolute;
   top: 20px;
   left: 20px;
 }
 
 .cardName {
+  transition: all 0.3s ease;
   margin-top: $padding-level6;
   @include font-settings($p, 700, $background-dark);
 }
@@ -31,4 +34,9 @@
     width: 100%;
     height: 315px;
   }
+}
+
+img {
+  width: 100%;
+  aspect-ratio: 1/1.4;
 }

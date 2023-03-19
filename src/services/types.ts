@@ -1,4 +1,6 @@
 export interface IMovie {
+  alternativeName: string;
+  enName: null | string;
   id: number;
   year: number;
   genres: IGenres[];
@@ -16,6 +18,7 @@ export interface IMovie {
   name: string;
   poster: {
     previewUrl: string;
+    url: string;
   };
   fees: {
     world: {
@@ -24,7 +27,10 @@ export interface IMovie {
     };
   };
   persons: IPerson[];
+  similarMovies: SimilarMovie[];
 }
+
+type SimilarMovie = Pick<IMovie, "id" | "name" | "poster">;
 
 interface IPerson {
   enName: string;

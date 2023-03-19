@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import styles from "./Navigation.module.scss";
-const Navigation = () => {
+import styles from "./SideBar.module.scss";
+const SideBar = () => {
   const navigate = useNavigate();
   const navigationItems = [
     {
@@ -44,4 +44,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default SideBar;

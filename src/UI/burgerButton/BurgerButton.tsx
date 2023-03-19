@@ -1,14 +1,14 @@
-import { divide } from "lodash";
-import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { toggle } from "../../store/reducers/asideMenu/asideMenu.slice";
 import styles from "./BurgerButton.module.scss";
 
 const BurgerButton = () => {
-  const [active, setActive] = useState(false);
-
-  const toogle = () => {
-    setActive((prev) => !prev);
-    console.log(active);
+  const value = useAppSelector((state) => state.asideMenu.isOpen);
+  const dispatch = useAppDispatch();
+  const handleClick = () => {
+    dispatch(toggle());
   };
+  console.log(value);
 
   const burgerItems = [
     { id: 1, location: "top" },
@@ -17,13 +17,13 @@ const BurgerButton = () => {
   ];
 
   return (
-    <div className={styles.container} onClick={toogle}>
+    <div className={styles.container} onClick={handleClick}>
       <div className={styles.burgerItemContainer}>
         {burgerItems.map((element) => (
           <div
             key={element.id}
             className={
-              !active
+              !value
                 ? styles.burgerItem
                 : `${styles.burgerItem} ${
                     styles[`burgerItem${element.location}`]

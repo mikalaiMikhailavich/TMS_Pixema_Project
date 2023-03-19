@@ -1,3 +1,4 @@
+import { slicedArray } from "../../helpers/slicedArray";
 import { IGenres } from "../../services/types";
 import styles from "./Genres.module.scss";
 
@@ -12,7 +13,8 @@ const Genres = (props: IProps) => {
     return null;
   }
 
-  const slicedGenres = genres.slice(0, 4);
+  const slicedGenres = slicedArray<IGenres>(genres);
+
   return (
     <div className={styles.container}>
       {slicedGenres.map(({ name }, index) => (

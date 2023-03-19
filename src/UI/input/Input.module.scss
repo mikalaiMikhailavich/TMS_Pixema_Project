@@ -4,7 +4,7 @@
   @include font-settings($p, 500, $secondary);
   height: $input-height;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 10px;
   outline: none;
   border: 2px solid $light;
   padding-left: 18px;
@@ -12,3 +12,6 @@
 
 // .input_dark-theme {
 // }
+.input:focus {
+  border-color: $primary;
+}

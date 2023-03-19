@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Slider from "../../components/Slider/Slider";
-import { getFilmNew } from "../../helpers/getNewFilms";
 import { getSelectedFilm } from "../../helpers/getSelectedFilm";
 import { IMovie } from "../../services/types";
+import { useGetFilmsByIdQuery } from "../../store/requests/pixemaRequests";
 import Actors from "../../UI/actors/Actors";
 import BoxOffice from "../../UI/boxOffice/BoxOffice";
 import Country from "../../UI/country/Country";
@@ -16,23 +16,35 @@ import styles from "./SelectedFilm.module.scss";
 const SelectedFilm = () => {
   const params = useParams();
   const cardId = params.id;
+  // debugger;
+
+  // console.log(film);
+  const { data, isFetching, isError } = useGetFilmsByIdQuery(cardId);
+  console.log(isError);
+  console.log(isFetching);
+
+  console.log(data);
+
   const [selectedFilm, setSelectedFilm] = useState<IMovie>({} as IMovie);
-  const [card, setCard] = useState<any>([]);
-  useEffect(() => {
-    if (cardId) {
-      getSelectedFilm(cardId).then((movie: any) => {
-        console.log(movie.data);
-        setSelectedFilm(movie.data);
-      });
-    }
-    getFilmNew().then((data) => {
-      setCard(data.data);
-      console.log(data.data);
-    });
-  }, [cardId]);
+  console.log(selectedFilm);
+  // useEffect(() => {
+  //   if (cardId) {
+  //     getSelectedFilm(cardId).then((movie: any) => {
+  //       console.log(movie.data);
+  //       setSelectedFilm(movie.data);
+  //     });
+  //   }
+  // }, [cardId]);
+
+  if (isFetching) {
+    return <h1>Loading</h1>;
+  }
+
+  if (isError) {
+    return <h1>Cannot load files</h1>;
+  }
 
   const {
-    type,
     poster,
     genres,
     name,
@@ -43,17 +55,17 @@ const SelectedFilm = () => {
     countries,
     fees,
     persons,
-  } = {
-    ...selectedFilm,
-  };
+    similarMovies,
+  } = data as IMovie;
 
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <div
+        <img src={poster ? poster?.previewUrl : ""} alt="" />
+        {/* <div
           className={styles.poster}
           style={{ backgroundImage: `url(${poster?.previewUrl})` }}
-        ></div>
+        ></div> */}
         <div className={styles.buttons}></div>
       </div>
       <div className={styles.right}>
@@ -68,7 +80,7 @@ const SelectedFilm = () => {
         <Country countries={countries} />
         <BoxOffice fees={fees} />
         <Actors persons={persons} />
-        <Slider cards={card} />
+        <Slider similarMovies={similarMovies} />
       </div>
     </div>
   );

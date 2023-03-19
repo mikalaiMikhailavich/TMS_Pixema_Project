@@ -1,5 +1,5 @@
 import Header from "../../UI/header/Header";
-import Navigation from "../../UI/navigation/Navigation";
+import SideBar from "../../UI/sideBar/SideBar";
 import { Outlet } from "react-router-dom";
 import styles from "./Layout.module.scss";
 
@@ -9,7 +9,7 @@ const Layout = () => {
       <Header />
       <main className={`container ${styles.layoutContainer}`}>
         <div className={`column-width ${styles.left}`}>
-          <Navigation />
+          <SideBar />
         </div>
         <div className={styles.right}>
           <Outlet />
