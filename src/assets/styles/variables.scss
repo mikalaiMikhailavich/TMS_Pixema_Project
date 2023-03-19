@@ -41,17 +41,17 @@ $padding-level7: 20px;
 $padding-level8: 16px;
 $padding-level9: 8px;
 
-// @media (max-width: 768px) {
-//   $padding-level1: 56px;
-//   $padding-level2: 48px;
-//   $padding-level3: 48px;
-//   $padding-level4: 40px;
-//   $padding-level5: 32px;
-//   $padding-level6: 24px;
-//   $padding-level7: 20px;
-//   $padding-level8: 16px;
-//   $padding-level9: 8px;
-// }
+@media (max-width: 768px) {
+  $padding-level1: 56px;
+  $padding-level2: 48px;
+  $padding-level3: 48px;
+  $padding-level4: 40px;
+  $padding-level5: 32px;
+  $padding-level6: 24px;
+  $padding-level7: 20px;
+  $padding-level8: 16px;
+  $padding-level9: 8px;
+}
 
 // @media (max-width: 320px) {
 //   $padding-level1: 48px;

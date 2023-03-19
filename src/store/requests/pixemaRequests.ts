@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { IMovie } from "../../services/types";
 
 const URL = `https://api.kinopoisk.dev/v1/`;
 const key = `ZAEXZKF-RYRM40B-QRXAV1N-F1JX56B`;
@@ -12,7 +13,7 @@ export const pixemaApi = createApi({
     getFilms: build.query({
       query: (limit) => `movie?page=1&limit=${limit}`,
     }),
-    getFilmsById: build.query({
+    getFilmsById: build.query<IMovie, string>({
       query: (id) => `movie/${id}`,
     }),
   }),

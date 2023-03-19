@@ -16,25 +16,12 @@ import styles from "./SelectedFilm.module.scss";
 const SelectedFilm = () => {
   const params = useParams();
   const cardId = params.id;
-  // debugger;
 
-  // console.log(film);
+  if (cardId === undefined) {
+    return null;
+  }
+
   const { data, isFetching, isError } = useGetFilmsByIdQuery(cardId);
-  console.log(isError);
-  console.log(isFetching);
-
-  console.log(data);
-
-  const [selectedFilm, setSelectedFilm] = useState<IMovie>({} as IMovie);
-  console.log(selectedFilm);
-  // useEffect(() => {
-  //   if (cardId) {
-  //     getSelectedFilm(cardId).then((movie: any) => {
-  //       console.log(movie.data);
-  //       setSelectedFilm(movie.data);
-  //     });
-  //   }
-  // }, [cardId]);
 
   if (isFetching) {
     return <h1>Loading</h1>;

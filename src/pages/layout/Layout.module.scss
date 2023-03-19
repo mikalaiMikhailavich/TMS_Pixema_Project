@@ -7,15 +7,20 @@
   gap: 40px;
 }
 
-.right {
+.middle {
   width: calc(100% / 6 * 5);
+}
+
+.right {
+  position: absolute;
+  right: 0px;
 }
 
 @media screen and (max-width: 1000px) {
   .left {
     display: none;
   }
-  .right {
+  .middle {
     width: 100%;
   }
 }

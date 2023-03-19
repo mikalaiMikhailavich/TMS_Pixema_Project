@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
-import { getFilmNew } from "../../helpers/getNewFilms";
+import { useState } from "react";
 import { useGetFilmsQuery } from "../../store/requests/pixemaRequests";
+import { Button } from "../../UI/button/Button";
 import Card from "../../UI/card/Card";
 import SwitchButton from "../../UI/switchButton/SwitchButton";
 import styles from "./MainPage.module.scss";
 const MainPage = () => {
   const [limit, setLimit] = useState(10);
-  const { data = {}, isLoading, isFetching } = useGetFilmsQuery(limit);
-  console.log(data);
+  const { data, isLoading, isFetching } = useGetFilmsQuery(limit);
 
   if (isLoading) return <h1>Loading</h1>;
-
+  const increaseLimit = () => {
+    setLimit((prev) => prev + 10);
+  };
   return (
     <>
       <div className={styles.container}>
@@ -19,13 +20,12 @@ const MainPage = () => {
         ))}
       </div>
       <SwitchButton />
-      <button
-        onClick={() => {
-          setLimit((prev) => prev + 10);
-        }}
-      >
-        {isFetching ? "loading" : "+10"}
-      </button>
+      <Button
+        value={"Show more"}
+        type={"secondary"}
+        handler={increaseLimit}
+        isFetching={isFetching}
+      />
     </>
   );
 };
