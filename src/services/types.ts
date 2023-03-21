@@ -88,3 +88,8 @@ export type genreNameType =
   | "фильм-нуар"
   | "фэнтези"
   | "церемония";
+
+export interface ISearchTab {
+  type: number;
+  value: "Фильмы" | "Сериалы" | "Мультфильмы";
+}

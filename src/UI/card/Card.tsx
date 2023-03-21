@@ -1,27 +1,45 @@
 import { useNavigate } from "react-router-dom";
+import { IMovie } from "../../services/types";
 import Genres from "../genres/Genres";
 import Rating from "../rating/Rating";
 import styles from "./Card.module.scss";
-const Card = (props: any) => {
-  const { filmItem } = props;
-  const { id, name, poster, rating, genres, similarMovies } = filmItem;
-  const { previewUrl } = poster;
+
+interface IProps {
+  filmItem: IMovie;
+  type?: "ordinary" | "search";
+}
+
+const Card = (props: IProps) => {
   const navigate = useNavigate();
 
-  // const navigateToSelectedCard = (type = "film") => {
-  //   switch (type) {
-  //     case "film":
-  //       navigate("/");
-  //       break;
+  const {
+    filmItem: { id, name, poster, rating, genres },
+    type = "ordinary",
+  } = props;
 
-  //     default:
-  //       break;
-  //   }
-  // };
+  const { previewUrl } = poster || {};
+  const { kp } = rating || {};
 
   const navigateToSelectedCard = (id: number) => {
     navigate(`/film/${id}`);
   };
+
+  if (type === "search") {
+    return (
+      <div
+        className={styles.containerSearch}
+        onClick={() => navigateToSelectedCard(id)}
+      >
+        <img className={styles.poster} src={previewUrl} alt="poster" />
+
+        <div className={styles.ratingContainer}>
+          <Rating rating={kp} />
+        </div>
+
+        <h4 className={styles.cardName}>{name}</h4>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -29,9 +47,10 @@ const Card = (props: any) => {
       onClick={() => navigateToSelectedCard(id)}
     >
       <img className={styles.poster} src={previewUrl} alt="" />
+      {/* <img className={styles.poster} src={previewUrl} alt="" /> */}
 
       <div className={styles.ratingContainer}>
-        <Rating rating={rating?.kp} />
+        <Rating rating={kp} />
       </div>
 
       <h4 className={styles.cardName}>{name}</h4>

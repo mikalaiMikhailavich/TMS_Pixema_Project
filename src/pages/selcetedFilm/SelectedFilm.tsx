@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Slider from "../../components/Slider/Slider";
-import { getSelectedFilm } from "../../helpers/getSelectedFilm";
 import { IMovie } from "../../services/types";
 import { useGetFilmsByIdQuery } from "../../store/requests/pixemaRequests";
 import Actors from "../../UI/actors/Actors";

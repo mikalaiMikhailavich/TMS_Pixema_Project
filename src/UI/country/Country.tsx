@@ -1,3 +1,4 @@
+import { joinedArray } from "../../helpers/joinedArray";
 import { IMovie } from "../../services/types";
 import styles from "./Country.module.scss";
 
@@ -6,10 +7,11 @@ type Props = Pick<IMovie, "countries">;
 const Country = (props: Props) => {
   const { countries } = props;
 
-  const sortedCountries =
-    countries !== undefined
-      ? countries.map((element) => element.name).join(", ")
-      : null;
+  if (countries === undefined) {
+    return null;
+  }
+
+  const sortedCountries = joinedArray(countries, ", ", "name");
 
   return (
     <div className={styles.container}>

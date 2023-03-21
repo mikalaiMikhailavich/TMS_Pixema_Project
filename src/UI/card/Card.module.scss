@@ -9,24 +9,50 @@
     .cardName {
       color: $primary;
     }
+    .poster {
+      border-color: aqua;
+    }
+  }
+  .poster {
+    width: 100%;
+    aspect-ratio: 1/1.4;
+    border-radius: 20px;
+    height: 350px;
+  }
+
+  .ratingContainer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .cardName {
+    transition: all 0.3s ease;
+    margin-top: $padding-level6;
+    @include font-settings($p, 700, $background-dark);
   }
 }
 
-.poster {
-  border-radius: 20px;
-  height: 350px;
-}
-
-.ratingContainer {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
-.cardName {
-  transition: all 0.3s ease;
-  margin-top: $padding-level6;
-  @include font-settings($p, 700, $background-dark);
+.containerSearch {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  border-bottom: 2px solid black;
+  cursor: pointer;
+  .poster {
+    width: 60px;
+    height: 100px;
+  }
+  .ratingContainer {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+  }
+  &:last-child {
+    border: none;
+  }
 }
 
 @media screen and (max-width: 1440px) {
@@ -34,9 +60,4 @@
     width: 100%;
     height: 315px;
   }
-}
-
-img {
-  width: 100%;
-  aspect-ratio: 1/1.4;
 }

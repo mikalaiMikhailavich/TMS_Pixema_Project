@@ -9,9 +9,10 @@ const useInput = (initialValue: string) => {
   const clearValue = () => {
     setValue("");
   };
+
   return {
     value,
-    onChange: handleChange,
+    handleChange,
     clearValue,
   };
 };

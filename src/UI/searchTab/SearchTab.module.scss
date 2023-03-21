@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: red;
+  color: blue;
+}

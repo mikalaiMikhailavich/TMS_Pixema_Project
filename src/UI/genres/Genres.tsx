@@ -9,7 +9,7 @@ interface IProps {
 const Genres = (props: IProps) => {
   const { genres } = props;
 
-  if (genres === undefined) {
+  if (!genres) {
     return null;
   }
 

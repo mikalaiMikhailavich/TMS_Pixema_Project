@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { firstCapitalLetter } from "../../helpers/firstCapitalLetter";
 import styles from "./UserInfo.module.scss";
 
 interface IProps {
@@ -24,7 +25,6 @@ const UserInfo = (props: IProps) => {
   const toogleUserMenu = () => {
     setOpen((prev) => !prev);
   };
-  const firstCapitalLetter = (word: string) => word[0].toUpperCase();
 
   const firstLetterName = firstCapitalLetter(name);
 
