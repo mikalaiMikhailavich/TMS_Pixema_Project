@@ -28,7 +28,7 @@ const SideBar = () => {
       id: 4,
       name: "Settings",
       onClick: () => {
-        navigate("/");
+        navigate("/settings");
       },
     },
   ];

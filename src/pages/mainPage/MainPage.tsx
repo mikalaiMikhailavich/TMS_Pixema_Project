@@ -1,8 +1,5 @@
 import { useState } from "react";
-import {
-  useGetCardsQuery,
-  useGetFilmsQuery,
-} from "../../store/requests/pixemaRequests";
+import { useGetCardsQuery } from "../../store/requests/pixemaRequests";
 import { Button } from "../../UI/button/Button";
 import Card from "../../UI/card/Card";
 import SwitchButton from "../../UI/switchButton/SwitchButton";

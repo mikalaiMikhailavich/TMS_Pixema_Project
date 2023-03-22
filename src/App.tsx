@@ -3,6 +3,7 @@ import Layout from "./pages/layout/Layout";
 import "./assets/styles/main.scss";
 import MainPage from "./pages/mainPage/MainPage";
 import SelectedFilm from "./pages/selcetedFilm/SelectedFilm";
+import Settings from "./pages/settings/Settings";
 const App = () => {
   const location = useLocation();
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Route path="film/">
           <Route path=":id" element={<SelectedFilm />} />
         </Route>
+        <Route path="settings" element={<Settings />} />
         <Route path="signin" element={""} />
       </Route>
     </Routes>

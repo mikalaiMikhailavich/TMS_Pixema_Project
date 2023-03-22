@@ -10,7 +10,7 @@
   width: 100vw;
   height: 100vh;
   visibility: hidden;
-  transition: all 0.7s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .blur {
@@ -19,6 +19,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  background-color: rgba(0, 0, 0, 0.479);
   backdrop-filter: blur(2px);
 }
 
@@ -32,7 +33,7 @@
   height: 100vh;
   background-color: $background-dark;
   transform: translateX(150%);
-  transition: all 0.7s ease-in;
+  transition: all 0.3s ease-in;
   padding: 48px 40px 48px 40px;
 }
 

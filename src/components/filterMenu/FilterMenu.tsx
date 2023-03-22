@@ -1,12 +1,21 @@
 import cn from "classnames";
+import { useRef } from "react";
 import { useInput } from "../../hooks/inputHook";
+import { useOutsideClick } from "../../hooks/useOutsideClick";
 import { Button } from "../../UI/button/Button";
 import CloseButton from "../../UI/closeButton/CloseButton";
 import Input from "../../UI/input/Input";
 import Tabs from "../../UI/tabs/Tabs";
 import styles from "./FilterMenu.module.scss";
 
-const FilterMenu = (props: any) => {
+interface IProps {
+  opened: boolean;
+  handlerToClose: () => void;
+}
+const FilterMenu = (props: IProps) => {
+  const closeRef = useRef(null);
+  const { opened, handlerToClose } = props;
+  useOutsideClick(closeRef, handlerToClose, opened);
   const fromYear = useInput("");
   const toYear = useInput("");
   const fromRating = useInput("");
@@ -22,7 +31,6 @@ const FilterMenu = (props: any) => {
     },
   ];
 
-  const { opened } = props;
   const style = cn(styles.container, { [styles.active]: opened });
 
   const allParams = () => {
@@ -38,10 +46,13 @@ const FilterMenu = (props: any) => {
   return (
     <div className={style}>
       <div className={styles.blur}></div>
-      <form className={cn(styles.filterForm, { [styles.active]: opened })}>
+      <form
+        className={cn(styles.filterForm, { [styles.active]: opened })}
+        ref={closeRef}
+      >
         <div className={styles.headerForm}>
           <h4 className={styles.title}>Filters</h4>
-          <CloseButton handler={() => {}} />
+          <CloseButton handler={handlerToClose} />
         </div>
         <div>
           <h4 className={styles.text}>Sort by</h4>

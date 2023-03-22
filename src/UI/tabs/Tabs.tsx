@@ -16,6 +16,7 @@ const Tabs = (props: IProps) => {
     <div className={styles.container}>
       {tabs.map((tab) => (
         <div
+          key={tab.tab}
           className={
             currentTab === tab.tab
               ? `${styles.tab} ${styles.activeTab}`

@@ -1,6 +1,10 @@
 @import "../../assets/styles/variables.scss";
 @import "../../assets/styles/mixins.scss";
 
+.container {
+  width: 100%;
+}
+
 .input {
   @include font-settings($p, 500, $white);
   height: $input-height;
