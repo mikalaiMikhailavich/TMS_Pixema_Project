@@ -23,3 +23,11 @@ input[type="button"] {
     background-color: $primary2;
   }
 }
+.secondary {
+  background-color: $background-graphite;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $light;
+  }
+}

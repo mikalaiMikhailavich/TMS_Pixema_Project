@@ -1,5 +1,8 @@
 import styles from "./FilterButton.module.scss";
-const FilterButton = (props: any) => {
+interface IProps {
+  handler: () => void;
+}
+const FilterButton = (props: IProps) => {
   const { handler } = props;
   return (
     <div className={styles.container} onClick={handler}>

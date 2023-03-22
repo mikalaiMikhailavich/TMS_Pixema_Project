@@ -1,13 +1,15 @@
 @import "../../assets/styles/variables.scss";
 @import "../../assets/styles/mixins.scss";
+
 .input {
-  @include font-settings($p, 500, $secondary);
+  @include font-settings($p, 500, $white);
   height: $input-height;
   width: 100%;
   border-radius: 10px;
   outline: none;
-  border: 2px solid $light;
+  border: 2px solid $background-graphite;
   padding-left: 18px;
+  background-color: $background-graphite;
 }
 
 // .input_dark-theme {

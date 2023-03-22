@@ -1,0 +1,64 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.container {
+  overflow: hidden;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+  transition: all 0.7s ease-in;
+}
+
+.blur {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(2px);
+}
+
+.filterForm {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 100vh;
+  background-color: $background-dark;
+  transform: translateX(150%);
+  transition: all 0.7s ease-in;
+  padding: 48px 40px 48px 40px;
+}
+
+.active {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.headerForm {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  @include font-settings(24px, 600, $white);
+}
+
+.text {
+  @include font-settings(16px, 600, $white);
+}
+
+.sortedYear {
+  display: flex;
+  align-items: end;
+}
+
+.buttonsContainer {
+  display: flex;
+}

@@ -1,0 +1,28 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.container {
+  display: flex;
+  border-radius: 10px;
+  border: 2px solid $background-graphite;
+}
+
+.tab {
+  display: flex;
+  height: $input-height;
+  align-items: center;
+  justify-content: center;
+  @include font-settings(24px, 500, $secondary);
+  background: transparent;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    color: $white;
+  }
+}
+
+.activeTab {
+  background-color: $background-graphite;
+  color: $white;
+}

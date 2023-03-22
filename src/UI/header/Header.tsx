@@ -4,9 +4,11 @@ import BurgerButton from "../burgerButton/BurgerButton";
 import { useInput } from "../../hooks/inputHook";
 import styles from "./Header.module.scss";
 import { useLocation } from "react-router-dom";
-import Search from "../search/Search";
+import Search from "../../components/search/Search";
+
 const Header = () => {
   const { pathname } = useLocation();
+
   if (pathname === "/signin") {
     return (
       <div className="container">

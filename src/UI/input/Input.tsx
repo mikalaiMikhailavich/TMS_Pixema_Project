@@ -5,18 +5,22 @@ interface IProps {
   placeholder: string;
   value: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  label?: string;
 }
 
 const Input = (props: IProps) => {
-  const { type, placeholder, onChange, value } = props;
+  const { type, placeholder, onChange, value, label = "" } = props;
   return (
-    <input
-      className={styles.input}
-      type={type}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-    />
+    <div className={styles.container}>
+      <h4>{label}</h4>
+      <input
+        className={styles.input}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
   );
 };
 

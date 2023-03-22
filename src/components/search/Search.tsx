@@ -1,11 +1,12 @@
 import { useRef, useState } from "react";
 import { useInput } from "../../hooks/inputHook";
-import ClearButton from "../clearButton/ClearButton";
-import FilterButton from "../filterButton/FilterButton";
-import SearchList from "../searchList/SearchList";
+import ClearButton from "../../UI/clearButton/ClearButton";
+import FilterButton from "../../UI/filterButton/FilterButton";
+import SearchList from "../../UI/searchList/SearchList";
 import { useDebounce } from "usehooks-ts";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 import styles from "./Search.module.scss";
+import FilterMenu from "../filterMenu/FilterMenu";
 
 const Search = () => {
   const [opened, setOpened] = useState(false);
@@ -31,7 +32,11 @@ const Search = () => {
         }}
         onClick={() => setOpened(true)}
       />
-      {value ? <ClearButton handler={clearValue} /> : <FilterButton />}
+      {value ? (
+        <ClearButton handler={clearValue} />
+      ) : (
+        <FilterButton handler={() => {}} />
+      )}
       {isActive && <SearchList searchValue={debounceValue} onClose={onClose} />}
     </div>
   );
