@@ -7,8 +7,6 @@ export const useOutsideClick = (
 ) => {
   useEffect(() => {
     if (!attached) {
-      console.log("111111");
-
       return;
     }
 

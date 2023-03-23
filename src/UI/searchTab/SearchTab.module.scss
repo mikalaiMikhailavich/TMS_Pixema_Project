@@ -1,13 +1,17 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  border: 2px solid $light;
   border-radius: 8px;
   cursor: pointer;
 }
 
 .active {
-  background-color: red;
+  background-color: $background-graphite;
   color: blue;
 }

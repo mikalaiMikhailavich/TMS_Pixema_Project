@@ -38,6 +38,7 @@ const FilterMenu = (props: IProps) => {
     console.log(toYear.value);
     console.log(fromRating.value);
     console.log(toRating.value);
+    handlerToClose();
   };
   const clearAll = () => {
     fromYear.clearValue();

@@ -55,3 +55,20 @@ body {
     width: 100%;
   }
 }
+
+h1 {
+  @include font-settings(40px, 600, $background-black);
+}
+h2 {
+  @include font-settings(24px, 600, $background-black);
+}
+
+h3 {
+  @include font-settings(20px, 600, $background-black);
+}
+h4 {
+  @include font-settings(18px, 600, $background-black);
+}
+p {
+  @include font-settings(16px, 600, $background-black);
+}

@@ -1,7 +1,9 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
 $min-height: 250px;
 .container {
   z-index: 2;
-  background-color: antiquewhite;
+  background-color: $background-dark;
   position: absolute;
   display: flex;
   flex-direction: column;

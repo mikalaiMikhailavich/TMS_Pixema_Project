@@ -1,12 +1,12 @@
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { toggle } from "../../store/reducers/asideMenu/asideMenu.slice";
+import { toggleAsideMenu } from "../../store/reducers/asideMenu";
 import styles from "./BurgerButton.module.scss";
 
 const BurgerButton = () => {
   const value = useAppSelector((state) => state.asideMenu.isOpen);
   const dispatch = useAppDispatch();
   const handleClick = () => {
-    dispatch(toggle());
+    dispatch(toggleAsideMenu());
   };
   console.log(value);
 

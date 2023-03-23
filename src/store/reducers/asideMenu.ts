@@ -8,17 +8,18 @@ const asideMenuSlice = createSlice({
   name: "asideMenu",
   initialState,
   reducers: {
-    close(state) {
+    closeAsideMenu(state) {
       state.isOpen = false;
     },
-    toggle(state) {
+    toggleAsideMenu(state) {
       state.isOpen = !state.isOpen;
     },
-    open(state) {
+    openAsideMenu(state) {
       state.isOpen = true;
     },
   },
 });
 
-export const { close, toggle, open } = asideMenuSlice.actions;
+export const { closeAsideMenu, toggleAsideMenu, openAsideMenu } =
+  asideMenuSlice.actions;
 export default asideMenuSlice.reducer;

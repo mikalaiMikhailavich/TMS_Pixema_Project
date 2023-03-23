@@ -6,9 +6,11 @@ import SearchList from "../../UI/searchList/SearchList";
 import { useDebounce } from "usehooks-ts";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 import styles from "./Search.module.scss";
-import FilterMenu from "../filterMenu/FilterMenu";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { openFilterMenu } from "../../store/reducers/filter";
 
 const Search = () => {
+  const dispatch = useAppDispatch();
   const [opened, setOpened] = useState(false);
   const { value, handleChange, clearValue } = useInput("");
   const debounceValue = useDebounce(value, 500);
@@ -18,7 +20,9 @@ const Search = () => {
   };
   useOutsideClick(searchRef, onClose, opened);
   const isActive = debounceValue && opened;
-
+  const setOpenFilterMenu = () => {
+    dispatch(openFilterMenu());
+  };
   return (
     <div className={styles.container} ref={searchRef}>
       <input
@@ -35,7 +39,7 @@ const Search = () => {
       {value ? (
         <ClearButton handler={clearValue} />
       ) : (
-        <FilterButton handler={() => {}} />
+        <FilterButton handler={setOpenFilterMenu} />
       )}
       {isActive && <SearchList searchValue={debounceValue} onClose={onClose} />}
     </div>
