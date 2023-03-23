@@ -18,6 +18,12 @@
   padding-left: 18px;
 }
 
+:global(.dark-theme) {
+  .input {
+    background-color: $background-graphite;
+    border-color: $background-graphite;
+  }
+}
 // .input_dark-theme {
 // }
 .input:focus {

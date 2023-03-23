@@ -12,7 +12,7 @@ const Input = (props: IProps) => {
   const { type, placeholder, onChange, value, label = "" } = props;
   return (
     <div className={styles.container}>
-      <h4>{label}</h4>
+      <h4 className={styles.label}>{label}</h4>
       <input
         className={styles.input}
         type={type}

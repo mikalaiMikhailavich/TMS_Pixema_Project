@@ -3,7 +3,7 @@
 $min-height: 250px;
 .container {
   z-index: 2;
-  background-color: $background-dark;
+  background-color: $light;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -13,14 +13,16 @@ $min-height: 250px;
     width: 0;
   }
   border-radius: 20px;
+  padding: 10px;
 }
 
 .tabsContainer {
+  border: 2px solid $light;
+  border-radius: 10px;
   width: 100%;
   display: flex;
   justify-content: space-around;
   height: 65px;
-  padding: 10px;
 }
 
 .searchItems {

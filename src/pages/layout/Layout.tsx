@@ -6,9 +6,11 @@ import styles from "./Layout.module.scss";
 
 const Layout = () => {
   const sidebarIsOpen = useAppSelector((store) => store.asideMenu.isOpen);
-
+  const themeColor = useAppSelector((store) => store.theme.theme);
   return (
-    <div className={"app"}>
+    <div
+      className={`app ${themeColor === "light" ? "light-theme" : "dark-theme"}`}
+    >
       <Header />
       <main className={`container ${styles.layoutContainer}`}>
         <div className={`column-width ${styles.left}`}>

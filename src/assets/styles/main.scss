@@ -8,13 +8,11 @@
 }
 
 .light-theme {
-  background-color: #f3f3f3;
-  color: #313037;
+  background-color: $white;
 }
 
 .dark-theme {
-  background-color: #313037;
-  color: #f3f3f3;
+  background-color: $background-black;
 }
 
 html,
@@ -71,4 +69,42 @@ h4 {
 }
 p {
   @include font-settings(16px, 600, $background-black);
+}
+
+:global(.dark-theme) {
+  h1 {
+    @include font-settings(40px, 600, $background-black);
+  }
+  h2 {
+    @include font-settings(24px, 600, $background-black);
+  }
+
+  h3 {
+    @include font-settings(20px, 600, $background-black);
+  }
+  h4 {
+    @include font-settings(18px, 600, $background-black);
+  }
+  p {
+    @include font-settings(16px, 600, $background-black);
+  }
+}
+
+:global(.light-theme) .search__input {
+  h1 {
+    @include font-settings(40px, 600, $background-black);
+  }
+  h2 {
+    @include font-settings(24px, 600, $background-black);
+  }
+
+  h3 {
+    @include font-settings(20px, 600, $background-black);
+  }
+  h4 {
+    @include font-settings(18px, 600, $background-black);
+  }
+  p {
+    @include font-settings(16px, 600, $background-black);
+  }
 }
