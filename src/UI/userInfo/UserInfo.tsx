@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { firstCapitalLetter } from "../../helpers/firstCapitalLetter";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 import styles from "./UserInfo.module.scss";
@@ -11,6 +12,7 @@ const UserInfo = (props: IProps) => {
   const [open, setOpen] = useState(false);
   const { name } = props;
   const closeRef = useRef(null);
+  const navigate = useNavigate();
   const toogleUserMenu = () => {
     setOpen((prev) => !prev);
     console.log("user");
@@ -20,12 +22,16 @@ const UserInfo = (props: IProps) => {
     {
       id: 1,
       text: "Edit profile",
-      onClick: () => {},
+      onClick: () => {
+        navigate("/signin");
+      },
     },
     {
       id: 2,
       text: "Log Out",
-      onClick: () => {},
+      onClick: () => {
+        navigate("/signup");
+      },
     },
   ];
 

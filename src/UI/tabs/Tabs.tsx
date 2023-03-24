@@ -1,6 +1,7 @@
 import styles from "./Tabs.module.scss";
 interface ITab {
   tab: string;
+  querySelector: string;
   handler: () => void;
 }
 
@@ -18,7 +19,7 @@ const Tabs = (props: IProps) => {
         <div
           key={tab.tab}
           className={
-            currentTab === tab.tab
+            currentTab === tab.querySelector
               ? `${styles.tab} ${styles.activeTab}`
               : styles.tab
           }

@@ -6,21 +6,35 @@
 }
 
 .input {
-  @include font-settings($p, 500, $white);
+  @include font-settings($p, 500, $light);
   height: $input-height;
   width: 100%;
   border-radius: 10px;
   outline: none;
-  border: 2px solid $background-graphite;
+  border: 2px solid $light;
   padding-left: 18px;
-  background-color: $background-graphite;
+  background-color: transparent;
+}
+
+.label {
+  margin-bottom: 15px;
 }
 
 :global(.dark-theme) {
+  .input {
+    border-color: $background-graphite;
+    background-color: $background-graphite;
+  }
   .label {
     color: $white;
   }
 }
 .input:focus {
   border-color: $primary;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

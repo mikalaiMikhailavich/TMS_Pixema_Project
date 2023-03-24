@@ -1,8 +1,11 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 const useInput = (initialValue: string) => {
   const [value, setValue] = useState(initialValue);
 
+  useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
@@ -10,10 +13,19 @@ const useInput = (initialValue: string) => {
     setValue("");
   };
 
+  const setCustomValue = (customValue: string) => {
+    setValue(customValue);
+  };
+  const setToDefault = () => {
+    setValue(initialValue);
+  };
+
   return {
     value,
     handleChange,
     clearValue,
+    setCustomValue,
+    setToDefault,
   };
 };
 

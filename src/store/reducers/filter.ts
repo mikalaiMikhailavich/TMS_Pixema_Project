@@ -1,16 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+export const initialState = {
   isOpen: true,
-
-  sortBy: "year",
+  sortBy: "rating.kp",
   sortByYears: {
-    from: 2000,
-    to: 2023,
+    from: "1980",
+    to: "2023",
   },
   sortByRating: {
-    from: 1,
-    to: 10,
+    from: "1",
+    to: "10",
   },
 };
 
@@ -18,16 +17,12 @@ const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
-    sortBy(state, action) {
-      state.sortBy = action.payload;
-    },
-    setYears(state, action) {
-      state.sortByYears.from = action.payload.from;
-      state.sortByYears.to = action.payload.to;
-    },
-    setRating(state, action) {
-      state.sortByRating.from = action.payload.from;
-      state.sortByRating.to = action.payload.to;
+    setFilter(state, action) {
+      state.sortBy = action.payload.sortBy;
+      state.sortByYears.from = action.payload.fromYear;
+      state.sortByYears.to = action.payload.toYear;
+      state.sortByRating.from = action.payload.fromRating;
+      state.sortByRating.to = action.payload.toRating;
     },
     openFilterMenu(state) {
       state.isOpen = true;
@@ -35,9 +30,10 @@ const filterSlice = createSlice({
     closeFilterMenu(state) {
       state.isOpen = false;
     },
+    reset: (state) => initialState,
   },
 });
 
-export const { sortBy, setYears, setRating, openFilterMenu, closeFilterMenu } =
+export const { reset, setFilter, openFilterMenu, closeFilterMenu } =
   filterSlice.actions;
 export default filterSlice.reducer;

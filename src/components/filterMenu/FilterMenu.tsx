@@ -1,7 +1,10 @@
 import cn from "classnames";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useInput } from "../../hooks/inputHook";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { reset, setFilter } from "../../store/reducers/filter";
 import { Button } from "../../UI/button/Button";
 import CloseButton from "../../UI/closeButton/CloseButton";
 import Input from "../../UI/input/Input";
@@ -13,35 +16,67 @@ interface IProps {
   handlerToClose: () => void;
 }
 const FilterMenu = (props: IProps) => {
-  const closeRef = useRef(null);
+  const navigate = useNavigate();
   const { opened, handlerToClose } = props;
+  const dispatch = useAppDispatch();
+  const closeRef = useRef(null);
   useOutsideClick(closeRef, handlerToClose, opened);
-  const fromYear = useInput("");
-  const toYear = useInput("");
-  const fromRating = useInput("");
-  const toRating = useInput("");
+
+  const { sortByYears, sortByRating } = useAppSelector((state) => state.filter);
+
+  const fromYearValueSelector = sortByYears.from;
+  const toYearValueSelector = sortByYears.to;
+  const fromRatingValueSelector = sortByRating.from;
+  const toRatingValueSelector = sortByRating.to;
+
+  const fromYear = useInput(fromYearValueSelector);
+  const toYear = useInput(toYearValueSelector);
+  const fromRating = useInput(fromRatingValueSelector);
+  const toRating = useInput(toRatingValueSelector);
+
+  const [tab, setTab] = useState("rating.kp");
+  console.log(tab);
+
+  const setCurrentTab = (tabName: string) => {
+    setTab(tabName);
+  };
+
   const tabs = [
     {
       tab: "Рейтинг",
-      handler: () => {},
+      querySelector: "rating.kp",
+      handler: () => setCurrentTab("rating.kp"),
     },
     {
       tab: "Год",
-      handler: () => {},
+      querySelector: "year",
+      handler: () => setCurrentTab("year"),
     },
   ];
 
   const style = cn(styles.container, { [styles.active]: opened });
 
   const allParams = () => {
-    console.log(fromYear.value);
-    console.log(toYear.value);
-    console.log(fromRating.value);
-    console.log(toRating.value);
+    dispatch(
+      setFilter({
+        sortBy: tab,
+        fromYear: fromYear.value,
+        toYear: toYear.value,
+        fromRating: fromRating.value,
+        toRating: toRating.value,
+      })
+    );
     handlerToClose();
+    navigate("/filter");
   };
-  const clearAll = () => {
-    fromYear.clearValue();
+
+  const resetAll = () => {
+    dispatch(reset());
+
+    fromYear.setToDefault();
+    toYear.setToDefault();
+    fromRating.setToDefault();
+    toRating.setToDefault();
   };
 
   return (
@@ -57,43 +92,43 @@ const FilterMenu = (props: IProps) => {
         </div>
         <div>
           <h4 className={styles.text}>Sort by</h4>
-          <Tabs currentTab={"Рейтинг"} tabs={tabs} />
+          <Tabs currentTab={tab} tabs={tabs} />
         </div>
-        <div className={styles.sortedYear}>
+        <div className={styles.components}>
           <Input
-            type={"text"}
+            type={"number"}
             placeholder={"From"}
             onChange={fromYear.handleChange}
             value={fromYear.value}
             label={"Years"}
           />
           <Input
-            type={"text"}
+            type={"number"}
             placeholder={"To"}
             onChange={toYear.handleChange}
             value={toYear.value}
           />
         </div>
-        <div className={styles.sortedRating}>
+        <div className={styles.components}>
           <Input
-            type={"text"}
+            type={"number"}
             placeholder={"From"}
             onChange={fromRating.handleChange}
             value={fromRating.value}
             label={"Rating"}
           />
           <Input
-            type={"text"}
+            type={"number"}
             placeholder={"To"}
             onChange={toRating.handleChange}
             value={toRating.value}
           />
         </div>
-        <div className={styles.buttonsContainer}>
+        <div className={styles.components}>
           <Button
             value={"Clear filter"}
             type={"secondary"}
-            handler={clearAll}
+            handler={resetAll}
           />
           <Button value={"Show results"} type={"primary"} handler={allParams} />
         </div>
@@ -103,80 +138,3 @@ const FilterMenu = (props: IProps) => {
 };
 
 export default FilterMenu;
-
-{
-  /* <div className="modal-filter__genre">
-            <h3>Жанры</h3>
-            <div className="genre-block">
-              <Controller
-                name="genres"
-                control={control}
-                render={({ field: { value, onChange } }) => {
-                  return (
-                    <>
-                      <ul>
-                        <>
-                          {value.map(
-                            (genre) =>
-                              genre.value && (
-                                <li key={genre.value}>
-                                  {genre.label}
-                                  <HiOutlineX
-                                    onClick={() => {
-                                      onChange(
-                                        value.filter(
-                                          (item) => item.label !== genre.label
-                                        )
-                                      );
-                                    }}
-                                  />
-                                </li>
-                              )
-                          )}
-                          {value.length !== 10 && (
-                            <input
-                              type="text"
-                              maxLength={20}
-                              value={text}
-                              onChange={(e) => onChangeHandler(e.target.value)}
-                              placeholder={
-                                value[1]?.label ? "" : "Выберите жанр"
-                              }
-                            />
-                          )}
-                        </>
-                      </ul>
-                      {suggestions && (
-                        <div className="suggestions" ref={genresRef}>
-                          {suggestions.map((item, index) => (
-                            <div
-                              key={index}
-                              onClick={() => {
-                                onChange([
-                                  ...value.filter(
-                                    (i) => i.label !== item.label
-                                  ),
-                                  item,
-                                ]);
-                                onSuggestHandler();
-                              }}
-                              className="suggestion"
-                            >
-                              {item.label}
-                              {value.map(
-                                (element) =>
-                                  element.label === item.label && (
-                                    <FiCheck key={index} />
-                                  )
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </>
-                  );
-                }}
-              />
-            </div>
-          </div> */
-}

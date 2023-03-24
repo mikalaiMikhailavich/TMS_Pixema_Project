@@ -1,0 +1,21 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/mixins.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.childrenContainer {
+  width: 100%;
+  max-width: 574px;
+  border: 2px solid $light;
+  padding: 40px;
+  border-radius: 15px;
+}
+
+.label {
+  margin-bottom: 40px;
+}
