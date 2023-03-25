@@ -11,18 +11,9 @@ const SignUpComponent = () => {
   const password = useInput("");
   const username = useInput("");
   const navigate = useNavigate();
-  const [registration, createResult] = useRegistrationMutation();
-  // console.log(createResult);
-  // useEffect(() => {
-  //   if (createResult.isLoading === false && createResult.isSuccess) {
-  //     console.log(createResult.status);
-  //     console.log(createResult.error);
-  //     console.log(createResult);
+  const [registration, wwww] = useRegistrationMutation();
+  console.log(wwww);
 
-  //     console.log("create post", createResult.data);
-  //     // navigate("/");
-  //   }
-  // }, [createResult]);
   const [error, setError] = useState({
     data: { email: [""], username: [""], password: [""] },
   });
@@ -33,10 +24,8 @@ const SignUpComponent = () => {
       username: username.value,
     })
       .unwrap()
-      .then((payload) => console.log(payload))
-      .catch((error) => {
-        console.log(error);
-      });
+      .then((payload) => payload && navigate("/activation"))
+      .catch((error) => setError(error));
   };
 
   return (
@@ -48,6 +37,12 @@ const SignUpComponent = () => {
         label={"Name"}
         onChange={username.handleChange}
       />
+      <div>
+        {error?.data?.username?.[0] ===
+        "A user with that username already exists." ? (
+          <div style={{ color: "#ed4337" }}>Данный логин уже используется</div>
+        ) : null}
+      </div>
       <Input
         type={"email"}
         placeholder={"Your email"}
@@ -55,6 +50,9 @@ const SignUpComponent = () => {
         label={"Email"}
         onChange={email.handleChange}
       />
+      {error?.data?.email?.[0] === "user with this Email already exists." ? (
+        <div style={{ color: "#ed4337" }}>Данная почта уже используется</div>
+      ) : null}
       <div className={styles.pasword}>
         <Input
           type={"password"}

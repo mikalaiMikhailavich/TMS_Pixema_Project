@@ -43,6 +43,10 @@ export const pixemaApi = createApi({
           " "
         )}&sortField=${sortBy}&sortType=-1&page=1&limit=${limit}&year=${fromYear}-${toYear}&rating.kp=${fromRating}-${toRating}`,
     }),
+    getFavoriteCards: build.query({
+      query: ({ query, limit }) =>
+        `/movie?${query}&limit=${limit}&sortField=rating.kp&sortType=-1&selectFields=genres year name typeNumber id poster rating`,
+    }),
   }),
 });
 
@@ -52,6 +56,7 @@ export const {
   useSearchFilmsQuery,
   useGetCardsQuery,
   useFilterFilmsQuery,
+  useGetFavoriteCardsQuery,
 } = pixemaApi;
 
 export const { getFilms } = pixemaApi.endpoints;

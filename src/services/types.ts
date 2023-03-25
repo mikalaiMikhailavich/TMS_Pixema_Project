@@ -93,3 +93,5 @@ export interface ISearchTab {
   type: number;
   value: "Фильмы" | "Сериалы" | "Мультфильмы";
 }
+
+export type CardType = "ordinary" | "search" | "favorite";

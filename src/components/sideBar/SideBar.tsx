@@ -21,7 +21,7 @@ const SideBar = () => {
       id: 3,
       name: "Favorites",
       onClick: () => {
-        navigate("/");
+        navigate("/favorites");
       },
     },
     {

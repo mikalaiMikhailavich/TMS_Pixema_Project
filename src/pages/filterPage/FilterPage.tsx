@@ -31,6 +31,7 @@ const FilterPage = () => {
   return (
     <>
       <FilmListView
+        type={"ordinary"}
         films={docs}
         isFetching={isFetching}
         increaseLimit={increaseLimit}

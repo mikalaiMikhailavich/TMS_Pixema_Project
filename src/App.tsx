@@ -7,7 +7,8 @@ import Settings from "./pages/settings/Settings";
 import FilterPage from "./pages/filterPage/FilterPage";
 import SignIn from "./pages/signIn/SignIn";
 import SignUp from "./pages/signUp/SignUp";
-import ConfirmRegistration from "./pages/confirmRegistration/ConfirmRegistration";
+import Activation from "./pages/activation/Activation";
+import Favorites from "./pages/favorites/Favorites";
 const App = () => {
   const location = useLocation();
   return (
@@ -21,7 +22,8 @@ const App = () => {
         <Route path="filter" element={<FilterPage />} />
         <Route path="signin" element={<SignIn />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path="confirmregistration" element={<ConfirmRegistration />} />
+        <Route path="activation" element={<Activation />} />
+        <Route path="favorites" element={<Favorites />} />
       </Route>
     </Routes>
   );

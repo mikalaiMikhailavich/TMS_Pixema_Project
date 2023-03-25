@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useInput } from "../../hooks/inputHook";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
@@ -52,6 +52,11 @@ const FilterMenu = (props: IProps) => {
       querySelector: "year",
       handler: () => setCurrentTab("year"),
     },
+    {
+      tab: "Популярные",
+      querySelector: "votes.kp",
+      handler: () => setCurrentTab("votes.kp"),
+    },
   ];
 
   const style = cn(styles.container, { [styles.active]: opened });
@@ -77,6 +82,7 @@ const FilterMenu = (props: IProps) => {
     toYear.setToDefault();
     fromRating.setToDefault();
     toRating.setToDefault();
+    setTab("rating.kp");
   };
 
   return (

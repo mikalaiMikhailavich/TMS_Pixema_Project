@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
-  isOpen: true,
+  isOpen: false,
   sortBy: "rating.kp",
   sortByYears: {
     from: "1980",

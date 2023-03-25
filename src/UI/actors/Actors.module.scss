@@ -3,12 +3,12 @@
 
 .container {
   display: flex;
+  align-items: start;
   gap: 40px;
 }
 
 .name {
-  max-width: 180px;
-  flex: 1 1;
+  min-width: 180px;
   @include font-settings($p, 600, $light);
 }
 // .value {

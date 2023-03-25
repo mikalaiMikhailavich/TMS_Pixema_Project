@@ -12,10 +12,26 @@ export const registration = createApi({
         method: "POST",
         body,
       }),
-      transformErrorResponse: (response: { status: any }, meta, arg) =>
-        response.status,
+    }),
+    activation: build.mutation({
+      query: (body: { uid: string; token: string }) => ({
+        url: "https://studapi.teachmeskills.by/auth/users/activation/",
+        method: "POST",
+        body,
+      }),
+    }),
+    authorization: build.mutation({
+      query: (body: { uid: string; token: string }) => ({
+        url: "https://studapi.teachmeskills.by/auth/users/activation",
+        method: "POST",
+        body,
+      }),
     }),
   }),
 });
 
-export const { useRegistrationMutation } = registration;
+export const {
+  useRegistrationMutation,
+  useActivationMutation,
+  useAuthorizationMutation,
+} = registration;

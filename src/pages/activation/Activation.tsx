@@ -1,15 +1,15 @@
-import ConfirmRegistrationComponent from "../../components/confirmRegistrationComponent/ConfirmRegistrationComponent";
+import ActivationComponent from "../../components/activationComponent/ActivationComponent";
 import SignInComponent from "../../components/signInComponent/SignInComponent";
 import FormSignUserTemplate from "../../hoc/formSignUserTemplate/FormSignUserTemplate";
 import styles from "./SignIn.module.scss";
 
-const ConfirmRegistration = () => {
+const Activation = () => {
   return (
     <FormSignUserTemplate
-      children={<ConfirmRegistrationComponent />}
+      children={<ActivationComponent />}
       label={"Confirm registration"}
     />
   );
 };
 
-export default ConfirmRegistration;
+export default Activation;

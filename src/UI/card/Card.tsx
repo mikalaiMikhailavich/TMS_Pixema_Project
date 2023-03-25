@@ -1,12 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { IMovie } from "../../services/types";
+import { CardType, IMovie } from "../../services/types";
+import FavoritesButton from "../favoritesButton/FavoritesButton";
 import Genres from "../genres/Genres";
 import Rating from "../rating/Rating";
+import SkeletonLoading from "../skeletonLoading/SkeletonLoading";
 import styles from "./Card.module.scss";
 
 interface IProps {
   filmItem: IMovie;
-  type?: "ordinary" | "search";
+  type?: CardType;
+  isFetching?: boolean;
+  isLoading?: boolean;
 }
 
 const Card = (props: IProps) => {
@@ -15,6 +19,8 @@ const Card = (props: IProps) => {
   const {
     filmItem: { id, name, poster, rating, genres },
     type = "ordinary",
+    isFetching,
+    isLoading,
   } = props;
 
   const { previewUrl } = poster || {};
@@ -23,6 +29,7 @@ const Card = (props: IProps) => {
   const navigateToSelectedCard = (id: number) => {
     navigate(`/film/${id}`);
   };
+  console.log(isLoading);
 
   if (type === "search") {
     return (
@@ -51,6 +58,7 @@ const Card = (props: IProps) => {
 
       <div className={styles.ratingContainer}>
         <Rating rating={kp} />
+        {type === "favorite" && <FavoritesButton />}
       </div>
 
       <h4 className={styles.cardName}>{name}</h4>
