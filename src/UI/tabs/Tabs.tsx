@@ -15,17 +15,17 @@ const Tabs = (props: IProps) => {
 
   return (
     <div className={styles.container}>
-      {tabs.map((tab) => (
+      {tabs.map(({ tab, querySelector, handler }) => (
         <div
-          key={tab.tab}
+          key={tab}
           className={
-            currentTab === tab.querySelector
+            currentTab === querySelector
               ? `${styles.tab} ${styles.activeTab}`
               : styles.tab
           }
-          onClick={tab.handler}
+          onClick={handler}
         >
-          {tab.tab}
+          {tab}
         </div>
       ))}
     </div>

@@ -9,8 +9,6 @@ import styles from "./Card.module.scss";
 interface IProps {
   filmItem: IMovie;
   type?: CardType;
-  isFetching?: boolean;
-  isLoading?: boolean;
 }
 
 const Card = (props: IProps) => {
@@ -19,8 +17,6 @@ const Card = (props: IProps) => {
   const {
     filmItem: { id, name, poster, rating, genres },
     type = "ordinary",
-    isFetching,
-    isLoading,
   } = props;
 
   const { previewUrl } = poster || {};
@@ -29,7 +25,6 @@ const Card = (props: IProps) => {
   const navigateToSelectedCard = (id: number) => {
     navigate(`/film/${id}`);
   };
-  console.log(isLoading);
 
   if (type === "search") {
     return (

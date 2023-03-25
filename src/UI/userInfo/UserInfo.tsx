@@ -15,7 +15,6 @@ const UserInfo = (props: IProps) => {
   const navigate = useNavigate();
   const toogleUserMenu = () => {
     setOpen((prev) => !prev);
-    console.log("user");
   };
   useOutsideClick(closeRef, toogleUserMenu, open);
   const buttonContent = [

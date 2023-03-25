@@ -18,24 +18,12 @@ const FilmListView = (props: IProps) => {
     <div>
       <div className={styles.container}>
         {films.map((filmItem: any) => (
-          <Card
-            key={filmItem.id}
-            filmItem={filmItem}
-            type={type}
-            isFetching={isFetching}
-            isLoading={isLoading}
-          />
+          <Card key={filmItem.id} filmItem={filmItem} type={type} />
         ))}
-        {(isLoading || isFetching) && <SkeletonLoading />}
-        {(isLoading || isFetching) && <SkeletonLoading />}
-        {(isLoading || isFetching) && <SkeletonLoading />}
-        {(isLoading || isFetching) && <SkeletonLoading />}
-        {(isLoading || isFetching) && <SkeletonLoading />}
-        {(isLoading || isFetching) && <SkeletonLoading />}
-        {(isLoading || isFetching) && <SkeletonLoading />}
-        {(isLoading || isFetching) && <SkeletonLoading />}
-        {(isLoading || isFetching) && <SkeletonLoading />}
-        {(isLoading || isFetching) && <SkeletonLoading />}
+        {(isLoading || isFetching) &&
+          Array(10)
+            .fill(0)
+            .map((item, i) => <SkeletonLoading key={i} />)}
       </div>
       {type !== "favorite" && (
         <Button

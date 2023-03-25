@@ -28,6 +28,9 @@ const FilterPage = () => {
   const increaseLimit = () => {
     setLimit((prev) => prev + 10);
   };
+  if (!isLoading && !isFetching && docs.length === 0) {
+    return <h1>Ничего не найдено</h1>;
+  }
   return (
     <>
       <FilmListView
@@ -35,6 +38,7 @@ const FilterPage = () => {
         films={docs}
         isFetching={isFetching}
         increaseLimit={increaseLimit}
+        isLoading={isLoading}
       />
     </>
   );

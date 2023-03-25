@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./pages/layout/Layout";
 import "./assets/styles/main.scss";
 import MainPage from "./pages/mainPage/MainPage";
@@ -10,7 +10,6 @@ import SignUp from "./pages/signUp/SignUp";
 import Activation from "./pages/activation/Activation";
 import Favorites from "./pages/favorites/Favorites";
 const App = () => {
-  const location = useLocation();
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

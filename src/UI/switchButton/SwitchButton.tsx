@@ -11,9 +11,7 @@ const SwitchButton = () => {
       <div
         className={styles.toggler}
         style={nightMode ? { left: "13px", right: "20px" } : {}}
-      >
-        {" "}
-      </div>
+      ></div>
     </div>
   );
 };

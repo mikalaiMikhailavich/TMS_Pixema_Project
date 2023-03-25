@@ -35,7 +35,6 @@ const FilterMenu = (props: IProps) => {
   const toRating = useInput(toRatingValueSelector);
 
   const [tab, setTab] = useState("rating.kp");
-  console.log(tab);
 
   const setCurrentTab = (tabName: string) => {
     setTab(tabName);

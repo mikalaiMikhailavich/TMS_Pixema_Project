@@ -1,6 +1,8 @@
 import styles from "./ClearButton.module.scss";
-
-const ClearButton = (props: any) => {
+interface IProps {
+  handler: () => void;
+}
+const ClearButton = (props: IProps) => {
   const { handler } = props;
   return (
     <div className={styles.container} onClick={handler}>
