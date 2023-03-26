@@ -13,6 +13,8 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import { authRequests } from "./requests/auth";
+
 const persistConfig = {
   key: "root",
   storage,
@@ -28,9 +30,11 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    })
-      .concat(pixemaApi.middleware)
-      .concat(registration.middleware),
+    }).concat(
+      pixemaApi.middleware,
+      registration.middleware,
+      authRequests.middleware
+    ),
 });
 
 const persistor = persistStore(store);

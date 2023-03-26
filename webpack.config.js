@@ -20,8 +20,8 @@ module.exports = {
   },
   output: {
     publicPath: "/",
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: "index.bundle.js",
+    path: path.join(__dirname, "dist"),
     clean: true,
   },
 
@@ -47,6 +47,13 @@ module.exports = {
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
+      },
+      {
+        test: /\.(js|jsx)$/, // .js and .jsx files
+        exclude: /node_modules/, // excluding the node_modules folder
+        use: {
+          loader: "babel-loader",
+        },
       },
     ],
   },
