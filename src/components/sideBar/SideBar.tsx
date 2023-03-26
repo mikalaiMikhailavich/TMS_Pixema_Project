@@ -1,7 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import cn from "classnames";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../store/hooks";
+import { closeAsideMenu } from "../../store/reducers/asideMenu";
 import UserInfo from "../../UI/userInfo/UserInfo";
 import styles from "./SideBar.module.scss";
 const SideBar = () => {
+  const location = useLocation();
+  const dispatch = useAppDispatch();
+
+  const closeSideBar = () => {
+    dispatch(closeAsideMenu());
+  };
   const navigate = useNavigate();
   const navigationItems = [
     {
@@ -9,38 +18,45 @@ const SideBar = () => {
       name: "Home",
       onClick: () => {
         navigate("/");
+        closeSideBar();
       },
+
+      path: "/",
     },
+
     {
       id: 2,
-      name: "Trends",
-      onClick: () => {
-        navigate("/");
-      },
-    },
-    {
-      id: 3,
       name: "Favorites",
       onClick: () => {
         navigate("/favorites");
+        closeSideBar();
       },
+      path: "/favorites",
     },
     {
-      id: 4,
+      id: 3,
       name: "Settings",
       onClick: () => {
         navigate("/settings");
+        closeSideBar();
       },
+      path: "/settings",
     },
   ];
 
   return (
     <div className={styles.container}>
       <div className={styles.userContainer}>
-        <UserInfo name={"Nick"} />
+        <UserInfo />
       </div>
-      {navigationItems.map(({ id, name, onClick }) => (
-        <div key={id} className={styles.item} onClick={onClick}>
+      {navigationItems.map(({ id, name, onClick, path }) => (
+        <div
+          key={id}
+          className={cn(styles.item, {
+            [styles.active]: location.pathname === path,
+          })}
+          onClick={onClick}
+        >
           {name}
         </div>
       ))}

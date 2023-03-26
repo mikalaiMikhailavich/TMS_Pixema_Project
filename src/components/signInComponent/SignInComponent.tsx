@@ -26,8 +26,8 @@ const SignInComponent = () => {
         getUser(data.access)
           .unwrap()
           .then((data) => {
-            console.log(data);
             dispatch(setUser(data));
+            navigate("/");
           })
           .catch((error) => console.log(error));
 

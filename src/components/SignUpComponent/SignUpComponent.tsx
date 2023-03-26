@@ -12,7 +12,6 @@ const SignUpComponent = () => {
   const username = useInput("");
   const navigate = useNavigate();
   const [registration, wwww] = useRegistrationMutation();
-  console.log(wwww);
 
   const [error, setError] = useState({
     data: { email: [""], username: [""], password: [""] },

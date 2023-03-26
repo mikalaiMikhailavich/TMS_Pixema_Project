@@ -62,3 +62,9 @@
     border: none;
   }
 }
+
+:global(.dark-theme) {
+  .accountName {
+    color: $white;
+  }
+}

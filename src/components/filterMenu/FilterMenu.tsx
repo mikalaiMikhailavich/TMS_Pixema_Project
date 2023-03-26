@@ -21,6 +21,8 @@ const FilterMenu = (props: IProps) => {
   const dispatch = useAppDispatch();
   const closeRef = useRef(null);
   useOutsideClick(closeRef, handlerToClose, opened);
+  console.log();
+  document.body.style.overflowY = opened ? "hidden" : "";
 
   const { sortByYears, sortByRating } = useAppSelector((state) => state.filter);
 

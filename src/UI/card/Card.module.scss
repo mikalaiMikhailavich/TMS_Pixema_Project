@@ -30,6 +30,7 @@
   .cardName {
     transition: all 0.3s ease;
     margin-top: $padding-level6;
+    margin-bottom: 15px;
     @include font-settings($p, 700, $background-dark);
   }
 }

@@ -11,6 +11,9 @@
 .item {
   @include font-settings(18px, 600, $secondary);
   cursor: pointer;
+  &:hover {
+    color: $primary;
+  }
 }
 
 .userContainer {
@@ -21,4 +24,8 @@
   .userContainer {
     display: block;
   }
+}
+
+.active {
+  color: $primary;
 }

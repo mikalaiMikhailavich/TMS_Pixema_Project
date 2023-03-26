@@ -1,14 +1,25 @@
+import { useRef } from "react";
+import { useOutsideClick } from "../../hooks/useOutsideClick";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { toggleAsideMenu } from "../../store/reducers/asideMenu";
+import {
+  closeAsideMenu,
+  toggleAsideMenu,
+} from "../../store/reducers/asideMenu";
 import styles from "./BurgerButton.module.scss";
 
 const BurgerButton = () => {
-  const value = useAppSelector((state) => state.asideMenu.isOpen);
+  const sideBarIsOpen = useAppSelector((state) => state.asideMenu.isOpen);
   const dispatch = useAppDispatch();
+  const searchRef = useRef(null);
+
+  const closeSideBar = () => {
+    dispatch(closeAsideMenu());
+  };
+  useOutsideClick(searchRef, closeSideBar, sideBarIsOpen);
+
   const handleClick = () => {
     dispatch(toggleAsideMenu());
   };
-  console.log(value);
 
   const burgerItems = [
     { id: 1, location: "top" },
@@ -23,7 +34,7 @@ const BurgerButton = () => {
           <div
             key={element.id}
             className={
-              !value
+              !sideBarIsOpen
                 ? styles.burgerItem
                 : `${styles.burgerItem} ${
                     styles[`burgerItem${element.location}`]

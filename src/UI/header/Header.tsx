@@ -33,7 +33,7 @@ const Header = () => {
             <Search />
           </div>
           <div className={styles.userInfoContainer}>
-            <UserInfo name={"Axscsc"} />
+            <UserInfo />
           </div>
           <BurgerButton />
         </div>
