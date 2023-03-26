@@ -1,4 +1,4 @@
-import { CardType, IMovie } from "../../services/types";
+import { CardType, IMovie } from "../../helpers/types";
 import { Button } from "../button/Button";
 import Card from "../card/Card";
 import SkeletonLoading from "../skeletonLoading/SkeletonLoading";
@@ -15,8 +15,8 @@ const FilmListView = (props: IProps) => {
   const { films, isFetching, isLoading, increaseLimit, type } = props;
 
   return (
-    <div>
-      <div className={styles.container}>
+    <div className={styles.container}>
+      <div className={styles.containerFilm}>
         {films.map((filmItem: any) => (
           <Card key={filmItem.id} filmItem={filmItem} type={type} />
         ))}
@@ -26,12 +26,14 @@ const FilmListView = (props: IProps) => {
             .map((item, i) => <SkeletonLoading key={i} />)}
       </div>
       {type !== "favorite" && (
-        <Button
-          value={"Show more"}
-          type={"secondary"}
-          isFetching={isFetching}
-          handler={increaseLimit}
-        />
+        <div className={styles.buttonContainer}>
+          <Button
+            value={"Show more"}
+            type={"secondary"}
+            isFetching={isFetching}
+            handler={increaseLimit}
+          />
+        </div>
       )}
     </div>
   );

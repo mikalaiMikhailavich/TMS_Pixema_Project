@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { setThemeDark, setThemeLight } from "../../store/reducers/theme";
 import styles from "./SwitchButton.module.scss";
 
 const SwitchButton = () => {
-  const [nightMode, setNightMode] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+  const nightMode = useAppSelector((state) => state.theme.theme);
   const turnOnNightMode = () => {
-    setNightMode((prev) => !prev);
+    nightMode === "light"
+      ? dispatch(setThemeDark())
+      : dispatch(setThemeLight());
   };
   return (
     <div className={styles.container} onClick={turnOnNightMode}>
       <div
         className={styles.toggler}
-        style={nightMode ? { left: "13px", right: "20px" } : {}}
+        style={nightMode === "dark" ? { left: "13px", right: "20px" } : {}}
       ></div>
     </div>
   );

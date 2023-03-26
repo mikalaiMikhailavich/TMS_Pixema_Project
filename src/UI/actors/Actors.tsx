@@ -1,4 +1,4 @@
-import { IMovie } from "../../services/types";
+import { IMovie } from "../../helpers/types";
 import styles from "./Actors.module.scss";
 
 type Props = Pick<IMovie, "persons">;
@@ -14,7 +14,9 @@ const Actors = (props: Props) => {
       <div className={styles.name}>Actors</div>
       <div className={styles.value}>
         {sortedPersons?.map((element) => (
-          <span key={element.name}>{element.name}, </span>
+          <span key={element.name} className={styles.value}>
+            {element.name},{" "}
+          </span>
         ))}
       </div>
     </div>

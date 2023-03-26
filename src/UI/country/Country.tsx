@@ -1,5 +1,5 @@
 import { joinedArray } from "../../helpers/joinedArray";
-import { IMovie } from "../../services/types";
+import { IMovie } from "../../helpers/types";
 import styles from "./Country.module.scss";
 
 type Props = Pick<IMovie, "countries">;

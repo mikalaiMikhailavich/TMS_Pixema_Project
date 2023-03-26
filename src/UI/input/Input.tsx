@@ -6,7 +6,7 @@ interface IProps {
   value: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   label?: string;
-  name?: string;
+  required?: boolean;
 }
 
 const Input = (props: IProps) => {
@@ -16,7 +16,7 @@ const Input = (props: IProps) => {
     onChange,
     value,
     label = "",
-    name = "name",
+    required = false,
   } = props;
   return (
     <div className={styles.container}>
@@ -27,6 +27,7 @@ const Input = (props: IProps) => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        required={required}
       />
     </div>
   );

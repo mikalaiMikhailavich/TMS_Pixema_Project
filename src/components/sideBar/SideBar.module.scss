@@ -1,12 +1,24 @@
 @import "../../assets/styles/variables.scss";
 @import "../../assets/styles/mixins.scss";
+
 .container {
   display: flex;
   flex-direction: column;
   min-width: 158px;
   gap: $padding-level4;
+  background-color: transparent;
 }
 .item {
   @include font-settings(18px, 600, $secondary);
   cursor: pointer;
+}
+
+.userContainer {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .userContainer {
+    display: block;
+  }
 }

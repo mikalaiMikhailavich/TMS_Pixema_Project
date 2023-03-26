@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import Slider from "../../components/Slider/Slider";
-import { IMovie } from "../../services/types";
+import { IMovie } from "../../helpers/types";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
   addToFavorites,
@@ -51,6 +51,11 @@ const SelectedFilm = () => {
     persons,
     similarMovies,
   } = data as IMovie;
+
+  const isFavorite = (id: number) => {
+    return favorites.includes(id) ? "В избранном" : "Не в избранном";
+  };
+
   const handlerButton = (id: number) => {
     if (favorites.includes(id)) {
       dispatch(deleteFromFavorites(id));
@@ -68,7 +73,7 @@ const SelectedFilm = () => {
         />
         <div className={styles.buttons}>
           <Button
-            value={"в избранное"}
+            value={isFavorite(id)}
             type={"secondary"}
             handler={() => handlerButton(id)}
           />

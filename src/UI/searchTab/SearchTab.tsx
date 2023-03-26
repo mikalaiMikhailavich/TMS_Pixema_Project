@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { ISearchTab } from "../../services/types";
+import { ISearchTab } from "../../helpers/types";
 import styles from "./SearchTab.module.scss";
 
 interface IProps {

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { searchTabs } from "../../services/constants";
-import { IMovie } from "../../services/types";
+import { searchTabs } from "../../helpers/constants";
+import { IMovie } from "../../helpers/types";
 import { useSearchFilmsQuery } from "../../store/requests/pixemaRequests";
 import Card from "../card/Card";
 import SearchTab from "../searchTab/SearchTab";
@@ -28,7 +28,7 @@ const SearchList = (props: IProps) => {
   if (data?.docs.length === 0) {
     return (
       <div className={styles.container}>
-        <h1>Резултатов не найдено</h1>
+        <h1>Результатов не найдено</h1>
       </div>
     );
   }

@@ -1,29 +1,40 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.containerFilm {
   display: grid;
   grid-template-columns: repeat(5, minmax(150px, 261px));
   gap: 40px;
 }
+.buttonContainer {
+  width: 100%;
+  max-width: 320px;
+  align-self: center;
+}
 
 @media screen and (max-width: 1440px) {
-  .container {
+  .containerFilm {
     grid-template-columns: repeat(4, minmax(150px, 261px));
     gap: 20px;
   }
 }
 @media screen and (max-width: 850px) {
-  .container {
+  .containerFilm {
     grid-template-columns: repeat(3, minmax(150px, 261px));
     gap: 20px;
   }
 }
 @media screen and (max-width: 580px) {
-  .container {
+  .containerFilm {
     grid-template-columns: repeat(2, minmax(150px, 261px));
     gap: 20px;
   }
 }
 @media screen and (max-width: 440px) {
-  .container {
+  .containerFilm {
     grid-template-columns: repeat(1, minmax(150px, 261px));
     justify-content: center;
     gap: 20px;

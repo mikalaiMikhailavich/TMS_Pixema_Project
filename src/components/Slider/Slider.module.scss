@@ -1,5 +1,7 @@
 .slider {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .slides {
   transition: all 0.5s ease;
@@ -11,4 +13,11 @@
 .slide {
   flex-basis: 200px;
   transition: all 0.5s ease;
+}
+
+.sliderButtonContainer {
+  display: flex;
+  gap: 20px;
+  align-self: flex-end;
+  margin: 10px 0 10px 0;
 }

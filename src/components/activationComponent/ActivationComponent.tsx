@@ -47,6 +47,7 @@ const ActivationComponent = () => {
           value={uid.value}
           label={"uid"}
           onChange={uid.handleChange}
+          required={true}
         />
         <div className={styles.pasword}>
           <Input
@@ -55,6 +56,7 @@ const ActivationComponent = () => {
             value={token.value}
             label={"token"}
             onChange={token.handleChange}
+            required={true}
           />
         </div>
 

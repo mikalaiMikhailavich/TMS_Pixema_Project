@@ -8,9 +8,14 @@
   width: 100%;
   border-radius: 8px;
   cursor: pointer;
+  color: $white;
 }
 
 .active {
   background-color: $background-graphite;
-  color: blue;
+}
+:global(.dark-theme) {
+  .active {
+    background-color: $background-graphite;
+  }
 }

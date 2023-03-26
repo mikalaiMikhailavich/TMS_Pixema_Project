@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { CardType, IMovie } from "../../services/types";
+import { CardType, IMovie } from "../../helpers/types";
 import FavoritesButton from "../favoritesButton/FavoritesButton";
 import Genres from "../genres/Genres";
 import Rating from "../rating/Rating";
@@ -53,7 +53,7 @@ const Card = (props: IProps) => {
 
       <div className={styles.ratingContainer}>
         <Rating rating={kp} />
-        {type === "favorite" && <FavoritesButton />}
+        {type === "favorite" && <FavoritesButton id={id} />}
       </div>
 
       <h4 className={styles.cardName}>{name}</h4>

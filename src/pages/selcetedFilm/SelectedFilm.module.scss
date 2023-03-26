@@ -22,9 +22,9 @@ img {
 
 .poster {
   min-width: 250px;
-  aspect-ratio: 1/1.3;
   background-size: cover;
   border-radius: 20px;
+  margin-bottom: 25px;
 }
 
 .name {
@@ -70,5 +70,10 @@ img {
   .center {
     display: block;
     max-width: 330px;
+  }
+}
+:global(.dark-theme) {
+  .description {
+    color: $white;
   }
 }

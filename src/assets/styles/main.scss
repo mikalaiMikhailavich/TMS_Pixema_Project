@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixins";
+
 * {
   margin: 0;
   padding: 0;
@@ -73,38 +74,38 @@ p {
 
 :global(.dark-theme) {
   h1 {
-    @include font-settings(40px, 600, $background-black);
+    @include font-settings(40px, 600, $white);
   }
   h2 {
-    @include font-settings(24px, 600, $background-black);
+    @include font-settings(24px, 600, $white);
   }
 
   h3 {
-    @include font-settings(20px, 600, $background-black);
+    @include font-settings(20px, 600, $white);
   }
   h4 {
-    @include font-settings(18px, 600, $background-black);
+    @include font-settings(18px, 600, $white);
   }
   p {
-    @include font-settings(16px, 600, $background-black);
+    @include font-settings(16px, 600, $white);
   }
 }
 
-:global(.light-theme) .search__input {
-  h1 {
-    @include font-settings(40px, 600, $background-black);
-  }
-  h2 {
-    @include font-settings(24px, 600, $background-black);
-  }
+// :global(.light-theme) .search__input {
+//   h1 {
+//     @include font-settings(40px, 600, $background-black);
+//   }
+//   h2 {
+//     @include font-settings(24px, 600, $background-black);
+//   }
 
-  h3 {
-    @include font-settings(20px, 600, $background-black);
-  }
-  h4 {
-    @include font-settings(18px, 600, $background-black);
-  }
-  p {
-    @include font-settings(16px, 600, $background-black);
-  }
-}
+//   h3 {
+//     @include font-settings(20px, 600, $background-black);
+//   }
+//   h4 {
+//     @include font-settings(18px, 600, $background-black);
+//   }
+//   p {
+//     @include font-settings(16px, 600, $background-black);
+//   }
+// }

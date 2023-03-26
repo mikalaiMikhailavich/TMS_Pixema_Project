@@ -36,6 +36,7 @@ const SignUpComponent = () => {
         value={username.value}
         label={"Name"}
         onChange={username.handleChange}
+        required={true}
       />
       <div>
         {error?.data?.username?.[0] ===
@@ -49,6 +50,7 @@ const SignUpComponent = () => {
         value={email.value}
         label={"Email"}
         onChange={email.handleChange}
+        required={true}
       />
       {error?.data?.email?.[0] === "user with this Email already exists." ? (
         <div style={{ color: "#ed4337" }}>Данная почта уже используется</div>
@@ -60,6 +62,7 @@ const SignUpComponent = () => {
           value={password.value}
           label={"Password"}
           onChange={password.handleChange}
+          required={true}
         />
         <h5>Forgot password</h5>
       </div>

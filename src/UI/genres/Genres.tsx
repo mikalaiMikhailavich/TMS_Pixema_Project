@@ -1,5 +1,5 @@
 import { slicedArray } from "../../helpers/slicedArray";
-import { IGenres } from "../../services/types";
+import { IGenres } from "../../helpers/types";
 import styles from "./Genres.module.scss";
 
 interface IProps {

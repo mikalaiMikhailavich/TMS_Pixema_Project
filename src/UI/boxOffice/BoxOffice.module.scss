@@ -11,5 +11,11 @@
   flex: 1 1;
   @include font-settings($p, 600, $light);
 }
-// .value {
-// }
+.value {
+  color: $background-black;
+}
+:global(.dark-theme) {
+  .value {
+    color: $white;
+  }
+}

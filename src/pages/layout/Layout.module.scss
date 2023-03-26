@@ -2,6 +2,7 @@
 
 .layoutContainer {
   padding-top: $padding-level2 !important;
+  margin-bottom: 40px !important;
   display: flex;
   flex: 1 1;
   gap: 40px;
@@ -12,8 +13,11 @@
 }
 
 .right {
+  background-color: $light;
   position: absolute;
-  right: 0px;
+  right: 10px;
+  top: 160px;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 1000px) {

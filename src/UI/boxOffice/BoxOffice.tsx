@@ -1,4 +1,4 @@
-import { IMovie } from "../../services/types";
+import { IMovie } from "../../helpers/types";
 import styles from "./BoxOffice.module.scss";
 
 type Props = Pick<IMovie, "fees">;

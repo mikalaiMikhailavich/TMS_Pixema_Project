@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IMovie } from "../../services/types";
+import { IMovie } from "../../helpers/types";
 
 const URL = `https://api.kinopoisk.dev/v1/`;
 const key = `ZAEXZKF-RYRM40B-QRXAV1N-F1JX56B`;

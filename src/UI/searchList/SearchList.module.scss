@@ -9,6 +9,7 @@ $min-height: 250px;
   flex-direction: column;
   width: 100%;
   top: 75px;
+  min-height: 250px;
   &::-webkit-scrollbar {
     width: 0;
   }
@@ -17,7 +18,7 @@ $min-height: 250px;
 }
 
 .tabsContainer {
-  border: 2px solid $light;
+  border: 2px solid $primary;
   border-radius: 10px;
   width: 100%;
   display: flex;
@@ -39,4 +40,10 @@ $min-height: 250px;
   align-items: center;
   justify-content: center;
   min-height: $min-height;
+}
+
+:global(.dark-theme) {
+  .container {
+    background-color: $background-dark;
+  }
 }

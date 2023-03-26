@@ -57,6 +57,9 @@
 }
 
 :global(.dark-theme) {
+  .filterForm {
+    background-color: $background-dark;
+  }
   .title {
     color: $white;
   }
@@ -69,4 +72,10 @@
   display: flex;
   align-items: end;
   gap: 20px;
+}
+
+@media screen and (max-width: 550px) {
+  .filterForm {
+    width: 100%;
+  }
 }

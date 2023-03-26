@@ -15,6 +15,7 @@ const SignInComponent = () => {
         value={email.value}
         label={"Email"}
         onChange={email.handleChange}
+        required={true}
       />
       <div className={styles.pasword}>
         <Input
@@ -23,6 +24,7 @@ const SignInComponent = () => {
           value={password.value}
           label={"Password"}
           onChange={password.handleChange}
+          required={true}
         />
         <h5>Forgot password</h5>
       </div>

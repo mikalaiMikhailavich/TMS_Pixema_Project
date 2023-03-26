@@ -1,6 +1,20 @@
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import {
+  addToFavorites,
+  deleteFromFavorites,
+} from "../../store/reducers/favorites";
+
 const FavoritesButton = (props: any) => {
+  const { id } = props;
+  const favorites = useAppSelector((state) => state.favorites.favorites);
+  const dispatch = useAppDispatch();
   const handler = (e: any) => {
     e.stopPropagation();
+    if (favorites.includes(id)) {
+      dispatch(deleteFromFavorites(id));
+    } else {
+      dispatch(addToFavorites(id));
+    }
   };
 
   return (

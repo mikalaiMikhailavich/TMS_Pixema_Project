@@ -13,3 +13,8 @@
     margin-right: 6px;
   }
 }
+:global(.dark-theme) {
+  .item {
+    color: $light;
+  }
+}
