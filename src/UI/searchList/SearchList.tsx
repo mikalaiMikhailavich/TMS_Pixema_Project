@@ -15,7 +15,7 @@ interface IProps {
 const SearchList = (props: IProps) => {
   const [searchType, setSearchType] = useState<number>(1);
   const { searchValue, onClose } = props;
-  const { data, isFetching, isLoading, isError } = useSearchFilmsQuery({
+  const { data, isFetching } = useSearchFilmsQuery({
     searchText: searchValue,
     typeNumber: searchType,
   });

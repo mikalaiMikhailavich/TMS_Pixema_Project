@@ -2,7 +2,7 @@ import cn from "classnames";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../store/hooks";
 import { closeAsideMenu } from "../../store/reducers/asideMenu";
-import UserInfo from "../../UI/userInfo/UserInfo";
+import UserInfo from "../userInfo/UserInfo";
 import styles from "./SideBar.module.scss";
 const SideBar = () => {
   const location = useLocation();

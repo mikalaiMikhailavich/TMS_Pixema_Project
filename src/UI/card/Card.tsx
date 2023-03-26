@@ -49,7 +49,6 @@ const Card = (props: IProps) => {
       onClick={() => navigateToSelectedCard(id)}
     >
       <img className={styles.poster} src={previewUrl} alt="" />
-      {/* <img className={styles.poster} src={previewUrl} alt="" /> */}
 
       <div className={styles.ratingContainer}>
         <Rating rating={kp} />

@@ -1,4 +1,4 @@
-import UserInfo from "../userInfo/UserInfo";
+import UserInfo from "../../components/userInfo/UserInfo";
 import MainLogo from "../mainLogo/MainLogo";
 import BurgerButton from "../burgerButton/BurgerButton";
 import styles from "./Header.module.scss";

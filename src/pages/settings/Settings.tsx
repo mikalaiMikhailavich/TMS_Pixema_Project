@@ -11,6 +11,7 @@ const Settings = () => {
   const password = useInput("");
   const newPassword = useInput("");
   const confirmPassword = useInput("");
+
   return (
     <div className={styles.container}>
       {user.id ? (

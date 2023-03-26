@@ -11,7 +11,6 @@ const MainPage = () => {
     isFetching,
   } = useGetCardsQuery(limit);
 
-  // if (isLoading) return <h1>Loading</h1>;
   const increaseLimit = () => {
     setLimit((prev) => prev + 10);
   };

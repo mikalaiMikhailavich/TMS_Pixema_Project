@@ -7,7 +7,6 @@ const SliderButton = (props: IProps) => {
   const { handler, type } = props;
   return (
     <div className={styles.container} onClick={handler}>
-      {" "}
       {type === "left" ? (
         <svg
           width="24"

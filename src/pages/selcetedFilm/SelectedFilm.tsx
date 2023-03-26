@@ -22,10 +22,10 @@ const SelectedFilm = () => {
   const cardId = params.id;
   const favorites = useAppSelector((state) => state.favorites.favorites);
   const dispatch = useAppDispatch();
+
   if (cardId === undefined) {
     return null;
   }
-  console.log(favorites);
 
   const { data, isFetching, isError } = useGetFilmsByIdQuery(cardId);
 

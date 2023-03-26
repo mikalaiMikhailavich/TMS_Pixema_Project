@@ -8,7 +8,7 @@ const FavoritesButton = (props: any) => {
   const { id } = props;
   const favorites = useAppSelector((state) => state.favorites.favorites);
   const dispatch = useAppDispatch();
-  const handler = (e: any) => {
+  const handler = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     if (favorites.includes(id)) {
       dispatch(deleteFromFavorites(id));

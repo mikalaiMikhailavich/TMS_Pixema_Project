@@ -1,3 +1,4 @@
+import cn from "classnames";
 import styles from "./Tabs.module.scss";
 interface ITab {
   tab: string;
@@ -18,11 +19,9 @@ const Tabs = (props: IProps) => {
       {tabs.map(({ tab, querySelector, handler }) => (
         <div
           key={tab}
-          className={
-            currentTab === querySelector
-              ? `${styles.tab} ${styles.activeTab}`
-              : styles.tab
-          }
+          className={cn(styles.tab, {
+            [styles.activeTab]: currentTab === querySelector,
+          })}
           onClick={handler}
         >
           {tab}
