@@ -19,9 +19,9 @@ const SliderButton = (props: IProps) => {
           <path
             d="M9.5 17L4.5 12M4.5 12L9.5 7M4.5 12H21"
             stroke="#AFB2B6"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       ) : (
@@ -35,9 +35,9 @@ const SliderButton = (props: IProps) => {
           <path
             d="M14.5 17L19.5 12M19.5 12L14.5 7M19.5 12H3"
             stroke="#80858B"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       )}

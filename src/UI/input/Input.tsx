@@ -10,14 +10,7 @@ interface IProps {
 }
 
 const Input = (props: IProps) => {
-  const {
-    type,
-    placeholder,
-    onChange,
-    value,
-    label = "",
-    required = false,
-  } = props;
+  const { type, placeholder, onChange, value, label = "", required } = props;
   return (
     <div className={styles.container}>
       <h4 className={styles.label}>{label}</h4>
@@ -27,7 +20,7 @@ const Input = (props: IProps) => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        required={required}
+        required={true}
       />
     </div>
   );
