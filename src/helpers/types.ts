@@ -95,3 +95,20 @@ export interface ISearchTab {
 }
 
 export type CardType = "ordinary" | "search" | "favorite";
+
+export interface IAuth {
+  uid: string;
+  token: string;
+}
+
+export interface IRegister {
+  username: string;
+  email: string;
+  password: string;
+}
+
+export interface IRegisterResponce {
+  username: string;
+  email: string;
+  id: number;
+}

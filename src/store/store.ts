@@ -18,7 +18,7 @@ import { authRequests } from "./requests/auth";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["theme"],
+  whitelist: ["theme", "auth"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

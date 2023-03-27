@@ -39,20 +39,6 @@ export const authRequests = createApi({
         },
       }),
     }),
-
-    activateEmail: build.mutation({
-      query: ({ uid, token }) => ({
-        url: "/users/activation/",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          uid: uid,
-          token: token,
-        }),
-      }),
-    }),
   }),
 });
 
@@ -60,5 +46,4 @@ export const {
   useGetUserInfoMutation,
   useRefreshTokenMutation,
   useCreateTokenMutation,
-  useActivateEmailMutation,
 } = authRequests;

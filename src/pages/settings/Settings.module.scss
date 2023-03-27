@@ -19,6 +19,7 @@
   border: 2px solid $light;
   border-radius: 10px;
   padding: 40px;
+  margin-bottom: 40px;
 }
 .resetPasword {
   display: flex;
@@ -58,4 +59,8 @@
   .theme {
     border-color: $primary;
   }
+}
+
+.label {
+  margin-bottom: 25px;
 }

@@ -4,8 +4,8 @@ import { Outlet } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { memo, useCallback, useEffect } from "react";
 import { useElementWidth } from "../../hooks/useElementWidth";
-import styles from "./Layout.module.scss";
 import { closeAsideMenu } from "../../store/reducers/asideMenu";
+import styles from "./Layout.module.scss";
 
 const Layout = () => {
   const sidebarIsOpen = useAppSelector((store) => store.asideMenu.isOpen);

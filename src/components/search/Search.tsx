@@ -23,6 +23,7 @@ const Search = () => {
   const setOpenFilterMenu = () => {
     dispatch(openFilterMenu());
   };
+
   return (
     <div className={styles.container} ref={searchRef}>
       <input

@@ -16,7 +16,7 @@ const Settings = () => {
     <div className={styles.container}>
       {user.id ? (
         <div>
-          <h2>Profile</h2>
+          <h2 className={styles.label}>Profile</h2>
           <div className={styles.component}>
             <Input
               type={"text"}
@@ -34,7 +34,7 @@ const Settings = () => {
             />
           </div>
 
-          <h2>Password</h2>
+          <h2 className={styles.label}>Password</h2>
           <div className={styles.component}>
             <Input
               type={"password"}
@@ -62,7 +62,7 @@ const Settings = () => {
           </div>
         </div>
       ) : null}
-      <h2>Color mode</h2>
+      <h2 className={styles.label}>Color mode</h2>
       <div className={styles.theme}>
         <h4>Use dark thema</h4>
         <SwitchButton />

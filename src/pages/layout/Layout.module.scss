@@ -13,10 +13,12 @@
 }
 
 .right {
+  width: 300px;
+  padding: 30px;
   background-color: $light;
   position: absolute;
   right: 10px;
-  top: 160px;
+  top: 140px;
   border-radius: 10px;
 }
 
@@ -26,5 +28,10 @@
   }
   .middle {
     width: 100%;
+  }
+}
+:global(.dark-theme) {
+  .right {
+    background-color: $background-dark;
   }
 }
