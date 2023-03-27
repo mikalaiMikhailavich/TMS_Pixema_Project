@@ -10,7 +10,13 @@ import {
 import { Button } from "../../UI/button/Button";
 import Input from "../../UI/input/Input";
 import styles from "./SignInComponent.module.scss";
-
+interface IError {
+  data: {
+    email?: string;
+    password?: string;
+    detail?: string;
+  };
+}
 const SignInComponent = () => {
   const dispatch = useAppDispatch();
   const email = useInput("");
@@ -18,7 +24,9 @@ const SignInComponent = () => {
   const navigate = useNavigate();
   const [createToken] = useCreateTokenMutation();
   const [getUser] = useGetUserInfoMutation();
-  const [error, setError] = useState({ data: { detail: "" } });
+  const [error, setError] = useState<IError>({
+    data: { email: "", password: "" },
+  });
   const onSubmit = async () => {
     await createToken({ email: email.value, password: password.value })
       .unwrap()
@@ -34,8 +42,6 @@ const SignInComponent = () => {
         data && navigate("/", { replace: true });
       })
       .catch((error) => {
-        console.log(error);
-
         setError(error);
       });
   };
@@ -50,6 +56,13 @@ const SignInComponent = () => {
         onChange={email.handleChange}
         required={true}
       />
+      {error?.data?.detail ===
+      "No active account found with the given credentials" ? (
+        <div style={{ color: "#ed4337" }}>Неверная почта или пароль</div>
+      ) : null}
+      {error?.data?.email?.[0] === "This field may not be blank." ? (
+        <div style={{ color: "#ed4337" }}>Поле не заполнено</div>
+      ) : null}
       <div className={styles.pasword}>
         <Input
           type={"password"}
@@ -62,6 +75,9 @@ const SignInComponent = () => {
         {error?.data?.detail ===
         "No active account found with the given credentials" ? (
           <div style={{ color: "#ed4337" }}>Неверная почта или пароль</div>
+        ) : null}
+        {error?.data?.password?.[0] === "This field may not be blank." ? (
+          <div style={{ color: "#ed4337" }}>Поле не заполнено</div>
         ) : null}
       </div>
 

@@ -28,21 +28,17 @@ const ActivationComponent = () => {
     })
       .unwrap()
       .then((data) => {
-        console.log(data);
-
         dispatch(modalMenuOpen());
       })
       .catch((error) => {
         setError(error);
       });
   };
-  console.log(error);
 
   const handlerActivateButton = () => {
     dispatch(modalMenuClose());
     navigate("/signin");
   };
-  console.log(error?.data?.uid?.[0]);
 
   return (
     <>

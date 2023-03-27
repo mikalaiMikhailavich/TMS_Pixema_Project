@@ -26,7 +26,6 @@ const SignUpComponent = () => {
       .then((payload) => payload && navigate("/activation"))
       .catch((error) => {
         setError(error);
-        console.log(error);
       });
   };
 

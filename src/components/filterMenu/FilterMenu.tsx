@@ -21,7 +21,7 @@ const FilterMenu = (props: IProps) => {
   const dispatch = useAppDispatch();
   const closeRef = useRef(null);
   useOutsideClick(closeRef, handlerToClose, opened);
-  console.log();
+
   document.body.style.overflowY = opened ? "hidden" : "";
 
   const { sortByYears, sortByRating, sortBy, sortGenre } = useAppSelector(
@@ -81,9 +81,6 @@ const FilterMenu = (props: IProps) => {
   ];
 
   const style = cn(styles.container, { [styles.active]: opened });
-  console.log(sortGenre);
-
-  console.log(genre);
 
   const allParams = () => {
     dispatch(
