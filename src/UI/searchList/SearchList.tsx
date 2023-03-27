@@ -15,24 +15,14 @@ interface IProps {
 const SearchList = (props: IProps) => {
   const [searchType, setSearchType] = useState<number>(1);
   const { searchValue, onClose } = props;
-  const { data, isFetching } = useSearchFilmsQuery({
+  const { data, isFetching, isLoading } = useSearchFilmsQuery({
     searchText: searchValue,
     typeNumber: searchType,
   });
-  console.log(searchType);
 
   const setActiveSearchType = (number: number) => {
     setSearchType(number);
   };
-
-  if (data?.docs.length === 0) {
-    return (
-      <div className={styles.container}>
-        <h1>Результатов не найдено</h1>
-      </div>
-    );
-  }
-  console.log(data?.docs);
 
   return (
     <>
@@ -48,7 +38,11 @@ const SearchList = (props: IProps) => {
           ))}
         </div>
         {isFetching ? (
-          <div className={styles.loading}>Загрузка</div>
+          <h2 className={styles.loading}>Загрузка</h2>
+        ) : data?.docs.length === 0 ? (
+          <div className={styles.loading}>
+            <h1 className={styles.error}>Результатов не найдено</h1>
+          </div>
         ) : (
           <div className={styles.searchItems} onClick={onClose}>
             {data?.docs.map((searchCard: IMovie) => (

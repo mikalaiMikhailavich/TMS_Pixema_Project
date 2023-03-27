@@ -5,7 +5,7 @@ import FilmListView from "../../UI/filmListView/FilmListView";
 
 const FilterPage = () => {
   const [limit, setLimit] = useState(10);
-  const { sortByYears, sortByRating, sortBy } = useAppSelector(
+  const { sortByYears, sortByRating, sortBy, sortGenre } = useAppSelector(
     (state) => state.filter
   );
 
@@ -23,6 +23,7 @@ const FilterPage = () => {
     fromRating: fromRatingValue,
     toRating: toRatingValue,
     sortBy: sortBy,
+    genre: sortGenre,
     limit: limit,
   });
   const increaseLimit = () => {

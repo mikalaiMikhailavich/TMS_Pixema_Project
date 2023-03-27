@@ -6,7 +6,7 @@ import SearchList from "../../UI/searchList/SearchList";
 import { useDebounce } from "usehooks-ts";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 import styles from "./Search.module.scss";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { useAppDispatch } from "../../store/hooks";
 import { openFilterMenu } from "../../store/reducers/filter";
 
 const Search = () => {

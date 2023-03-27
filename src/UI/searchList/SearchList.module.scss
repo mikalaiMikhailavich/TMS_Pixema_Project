@@ -46,4 +46,8 @@ $min-height: 250px;
   .container {
     background-color: $background-dark;
   }
+  .error,
+  .loading {
+    color: $primary;
+  }
 }

@@ -24,7 +24,9 @@ const FilterMenu = (props: IProps) => {
   console.log();
   document.body.style.overflowY = opened ? "hidden" : "";
 
-  const { sortByYears, sortByRating } = useAppSelector((state) => state.filter);
+  const { sortByYears, sortByRating, sortBy, sortGenre } = useAppSelector(
+    (state) => state.filter
+  );
 
   const fromYearValueSelector = sortByYears.from;
   const toYearValueSelector = sortByYears.to;
@@ -36,9 +38,9 @@ const FilterMenu = (props: IProps) => {
   const fromRating = useInput(fromRatingValueSelector);
   const toRating = useInput(toRatingValueSelector);
 
-  const [tab, setTab] = useState("rating.kp");
-
-  const setCurrentTab = (tabName: string) => {
+  const [tab, setTab] = useState(sortBy);
+  const [genre, setGenre] = useState(sortGenre);
+  const setSortBy = (tabName: string) => {
     setTab(tabName);
   };
 
@@ -46,26 +48,48 @@ const FilterMenu = (props: IProps) => {
     {
       tab: "Рейтинг",
       querySelector: "rating.kp",
-      handler: () => setCurrentTab("rating.kp"),
+      handler: () => setSortBy("rating.kp"),
     },
     {
       tab: "Год",
       querySelector: "year",
-      handler: () => setCurrentTab("year"),
+      handler: () => setSortBy("year"),
     },
     {
-      tab: "Популярные",
+      tab: "Популярность",
       querySelector: "votes.kp",
-      handler: () => setCurrentTab("votes.kp"),
+      handler: () => setSortBy("votes.kp"),
+    },
+  ];
+
+  const genresTab = [
+    {
+      tab: "Комедия",
+      querySelector: "комедия",
+      handler: () => setGenre("комедия"),
+    },
+    {
+      tab: "Боевик",
+      querySelector: "боевик",
+      handler: () => setGenre("боевик"),
+    },
+    {
+      tab: "Концерт",
+      querySelector: "концерт",
+      handler: () => setGenre("концерт"),
     },
   ];
 
   const style = cn(styles.container, { [styles.active]: opened });
+  console.log(sortGenre);
+
+  console.log(genre);
 
   const allParams = () => {
     dispatch(
       setFilter({
         sortBy: tab,
+        genre: genre,
         fromYear: fromYear.value,
         toYear: toYear.value,
         fromRating: fromRating.value,
@@ -84,6 +108,7 @@ const FilterMenu = (props: IProps) => {
     fromRating.setToDefault();
     toRating.setToDefault();
     setTab("rating.kp");
+    setGenre("");
   };
 
   return (
@@ -115,6 +140,10 @@ const FilterMenu = (props: IProps) => {
             onChange={toYear.handleChange}
             value={toYear.value}
           />
+        </div>
+        <div>
+          <h4 className={styles.text}>Genres</h4>
+          <Tabs currentTab={genre} tabs={genresTab} />
         </div>
         <div className={styles.components}>
           <Input

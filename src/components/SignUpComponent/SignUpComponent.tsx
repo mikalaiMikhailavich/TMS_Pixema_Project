@@ -24,7 +24,10 @@ const SignUpComponent = () => {
     })
       .unwrap()
       .then((payload) => payload && navigate("/activation"))
-      .catch((error) => setError(error));
+      .catch((error) => {
+        setError(error);
+        console.log(error);
+      });
   };
 
   return (
@@ -42,6 +45,9 @@ const SignUpComponent = () => {
         "A user with that username already exists." ? (
           <div style={{ color: "#ed4337" }}>Данный логин уже используется</div>
         ) : null}
+        {error?.data?.username?.[0] === "This field may not be blank." ? (
+          <div style={{ color: "#ed4337" }}>Поле не заполнено</div>
+        ) : null}
       </div>
       <Input
         type={"email"}
@@ -54,6 +60,9 @@ const SignUpComponent = () => {
       {error?.data?.email?.[0] === "user with this Email already exists." ? (
         <div style={{ color: "#ed4337" }}>Данная почта уже используется</div>
       ) : null}
+      {error?.data?.email?.[0] === "This field may not be blank." ? (
+        <div style={{ color: "#ed4337" }}>Поле не заполнено</div>
+      ) : null}
       <div className={styles.pasword}>
         <Input
           type={"password"}
@@ -63,7 +72,9 @@ const SignUpComponent = () => {
           onChange={password.handleChange}
           required={true}
         />
-        <h5>Forgot password</h5>
+        {error?.data?.password?.[0] === "This field may not be blank." ? (
+          <div style={{ color: "#ed4337" }}>Поле не заполнено</div>
+        ) : null}
       </div>
 
       <Button value={"Sign up"} type={"primary"} handler={submitData} />

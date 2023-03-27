@@ -19,6 +19,7 @@ const ActivationComponent = () => {
   const uid = useInput("");
   const token = useInput("");
   const [confirmregistration] = useActivationMutation();
+  const [error, setError] = useState({ data: { token: [""], uid: [""] } });
   const navigate = useNavigate();
   const submit = () => {
     confirmregistration({
@@ -31,13 +32,18 @@ const ActivationComponent = () => {
 
         dispatch(modalMenuOpen());
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setError(error);
+      });
   };
-  console.log(uid.value);
+  console.log(error);
+
   const handlerActivateButton = () => {
     dispatch(modalMenuClose());
     navigate("/signin");
   };
+  console.log(error?.data?.uid?.[0]);
+
   return (
     <>
       <form className={styles.container}>
@@ -49,6 +55,12 @@ const ActivationComponent = () => {
           onChange={uid.handleChange}
           required={true}
         />
+        {error?.data?.uid?.[0] === "Invalid user id or user doesn't exist." ? (
+          <div style={{ color: "#ed4337" }}>Неверный uid или токен</div>
+        ) : null}
+        {error?.data?.uid?.[0] === "This field may not be blank." ? (
+          <div style={{ color: "#ed4337" }}>Поле не заполнено</div>
+        ) : null}
         <div className={styles.pasword}>
           <Input
             type={"text"}
@@ -59,7 +71,12 @@ const ActivationComponent = () => {
             required={true}
           />
         </div>
-
+        {error?.data?.uid?.[0] === "Invalid user id or user doesn't exist." ? (
+          <div style={{ color: "#ed4337" }}>Неверный uid или токен</div>
+        ) : null}
+        {error?.data?.uid?.[0] === "This field may not be blank." ? (
+          <div style={{ color: "#ed4337" }}>Поле не заполнено</div>
+        ) : null}
         <Button
           value={"Confirm registration"}
           type={"primary"}

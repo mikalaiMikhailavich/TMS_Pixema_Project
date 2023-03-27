@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
   isOpen: false,
+  sortGenre: "",
   sortBy: "rating.kp",
   sortByYears: {
     from: "1980",
@@ -23,6 +24,7 @@ const filterSlice = createSlice({
       state.sortByYears.to = action.payload.toYear;
       state.sortByRating.from = action.payload.fromRating;
       state.sortByRating.to = action.payload.toRating;
+      state.sortGenre = action.payload.genre;
     },
     openFilterMenu(state) {
       state.isOpen = true;

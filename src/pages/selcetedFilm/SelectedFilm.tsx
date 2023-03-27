@@ -53,7 +53,7 @@ const SelectedFilm = () => {
   } = data as IMovie;
 
   const isFavorite = (id: number) => {
-    return favorites.includes(id) ? "В избранном" : "Не в избранном";
+    return favorites.includes(id) ? "In favorites" : "Add to favorites";
   };
 
   const handlerButton = (id: number) => {

@@ -52,7 +52,9 @@ const UserInfo = () => {
 
   return (
     <div className={styles.accountInfo} onClick={toogleUserMenu} ref={closeRef}>
-      <div className={styles.accountCapitals}>{firstLetterName}</div>
+      <div className={styles.accountCapitals}>
+        {isAuth ? firstLetterName : "Sign"}
+      </div>
       <div className={styles.accountName}>{isAuth ? userName : "Sign in"}</div>
       <div
         className={

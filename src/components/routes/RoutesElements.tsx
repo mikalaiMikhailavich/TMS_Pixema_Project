@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Activation from "../../pages/activation/Activation";
 import Favorites from "../../pages/favorites/Favorites";
 import FilterPage from "../../pages/filterPage/FilterPage";
-import Layout from "../../pages/layout/Layout";
+import { LayoutMemo } from "../../pages/layout/Layout";
 import MainPage from "../../pages/mainPage/MainPage";
 import SelectedFilm from "../../pages/selcetedFilm/SelectedFilm";
 import Settings from "../../pages/settings/Settings";
@@ -12,7 +12,7 @@ import SignUp from "../../pages/signUp/SignUp";
 const RoutesElements = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<LayoutMemo />}>
         <Route index element={<MainPage />} />
         <Route path="film/">
           <Route path=":id" element={<SelectedFilm />} />

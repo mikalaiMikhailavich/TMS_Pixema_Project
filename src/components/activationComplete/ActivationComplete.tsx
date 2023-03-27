@@ -8,7 +8,7 @@ const ActivationComplete = (props: IProps) => {
   return (
     <div>
       <div className={styles.complete}>
-        <h2>Your activation completed</h2>
+        <h2 className={styles.text}>Your activation completed</h2>
         <Button value={"ok"} type={"primary"} handler={handler} />
       </div>
     </div>

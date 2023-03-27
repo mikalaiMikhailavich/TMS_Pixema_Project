@@ -9,18 +9,9 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { closeFilterMenu } from "../../store/reducers/filter";
 
 const Header = () => {
-  const { pathname } = useLocation();
   const filterMenuisOpen = useAppSelector((state) => state.filter.isOpen);
   const dispatch = useAppDispatch();
-  if (pathname === "/signin") {
-    return (
-      <div className="container">
-        <div className={styles.container}>
-          <MainLogo />
-        </div>
-      </div>
-    );
-  }
+
   const setCloseFilterMenu = () => {
     dispatch(closeFilterMenu());
   };

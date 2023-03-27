@@ -4,7 +4,7 @@ import styles from "./NoFavoritePosts.module.scss";
 const NoFavoritePosts = () => {
   return (
     <div className={styles.container}>
-      <h2>Избранные посты остуствуют</h2>
+      <h2>Favorites list is empty</h2>
       <div className={styles.imageContainer}>
         <img src={pic} alt="" />
       </div>

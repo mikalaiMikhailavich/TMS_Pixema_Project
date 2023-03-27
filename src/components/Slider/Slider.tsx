@@ -12,7 +12,6 @@ const Slider = (props: any) => {
   }
 
   const totalSlides = similarMovies.length;
-  console.log(totalSlides);
 
   const swipeRight = () => {
     if (value === totalSlides) {

@@ -7,7 +7,6 @@ const Actors = (props: Props) => {
   const { persons } = props;
 
   const sortedPersons = persons !== undefined ? persons.slice(0, 4) : null;
-  console.log(sortedPersons);
 
   return (
     <div className={styles.container}>

@@ -39,33 +39,7 @@ export const authRequests = createApi({
         },
       }),
     }),
-    patchUserName: build.mutation({
-      query: ({ username, id, token }) => ({
-        url: `/users/${id}/`,
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        method: "PATCH",
-        body: JSON.stringify({
-          username: username,
-        }),
-      }),
-    }),
-    patchPassword: build.mutation({
-      query: ({ token, new_password, current_password }) => ({
-        url: "/users/set_password/",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          current_password: current_password,
-          new_password: new_password,
-        }),
-      }),
-    }),
+
     activateEmail: build.mutation({
       query: ({ uid, token }) => ({
         url: "/users/activation/",
@@ -79,58 +53,6 @@ export const authRequests = createApi({
         }),
       }),
     }),
-    resendActivateEmail: build.mutation({
-      query: (email) => ({
-        url: "/users/resend_activation/",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          email: email,
-        }),
-      }),
-    }),
-    resetPassword: build.mutation({
-      query: (email) => ({
-        url: "/users/reset_password/",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          email: email,
-        }),
-      }),
-    }),
-    resetPasswordConfirm: build.mutation({
-      query: ({ uid, token, password }) => ({
-        url: "/users/reset_password_confirm/",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          uid: uid,
-          token: token,
-          new_password: password,
-        }),
-      }),
-    }),
-    postSignUp: build.mutation({
-      query: ({ username, email, password }) => ({
-        url: "/users/",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          username: username,
-          email: email,
-          password: password,
-        }),
-      }),
-    }),
   }),
 });
 
@@ -138,11 +60,5 @@ export const {
   useGetUserInfoMutation,
   useRefreshTokenMutation,
   useCreateTokenMutation,
-  usePostSignUpMutation,
-  usePatchUserNameMutation,
-  usePatchPasswordMutation,
   useActivateEmailMutation,
-  useResendActivateEmailMutation,
-  useResetPasswordConfirmMutation,
-  useResetPasswordMutation,
 } = authRequests;

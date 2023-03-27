@@ -18,9 +18,7 @@ export const pixemaApi = createApi({
           " "
         )}&page=1&limit=${limit}`,
     }),
-    getFilms: build.query({
-      query: (limit) => `movie?page=1&limit=${limit}`,
-    }),
+
     getFilmsById: build.query<IMovie, string>({
       query: (id) => `movie/${id}`,
     }),
@@ -32,6 +30,7 @@ export const pixemaApi = createApi({
     }),
     filterFilms: build.query({
       query: ({
+        genre = "",
         fromYear,
         toYear,
         fromRating,
@@ -41,7 +40,9 @@ export const pixemaApi = createApi({
       }) =>
         `movie?selectFields=${detailsCardFields.join(
           " "
-        )}&sortField=${sortBy}&sortType=-1&page=1&limit=${limit}&year=${fromYear}-${toYear}&rating.kp=${fromRating}-${toRating}`,
+        )}&sortField=${sortBy}&sortType=-1&page=1&limit=${limit}&${`${
+          genre ? `genres.name=${genre}` : ""
+        }`}&year=${fromYear}-${toYear}&rating.kp=${fromRating}-${toRating}`,
     }),
     getFavoriteCards: build.query({
       query: ({ query, limit }) =>
@@ -51,12 +52,9 @@ export const pixemaApi = createApi({
 });
 
 export const {
-  useGetFilmsQuery,
   useGetFilmsByIdQuery,
   useSearchFilmsQuery,
   useGetCardsQuery,
   useFilterFilmsQuery,
   useGetFavoriteCardsQuery,
 } = pixemaApi;
-
-export const { getFilms } = pixemaApi.endpoints;

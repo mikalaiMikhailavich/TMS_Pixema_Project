@@ -16,7 +16,7 @@ const SignInComponent = () => {
   const email = useInput("");
   const password = useInput("");
   const navigate = useNavigate();
-  const [createToken, { data }] = useCreateTokenMutation();
+  const [createToken] = useCreateTokenMutation();
   const [getUser] = useGetUserInfoMutation();
   const [error, setError] = useState({ data: { detail: "" } });
   const onSubmit = async () => {
@@ -29,9 +29,9 @@ const SignInComponent = () => {
             dispatch(setUser(data));
             navigate("/");
           })
-          .catch((error) => console.log(error));
+          .catch();
 
-        // data && navigate("/", { replace: true });
+        data && navigate("/", { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -59,10 +59,19 @@ const SignInComponent = () => {
           onChange={password.handleChange}
           required={true}
         />
-        <h5>Forgot password</h5>
+        {error?.data?.detail ===
+        "No active account found with the given credentials" ? (
+          <div style={{ color: "#ed4337" }}>Неверная почта или пароль</div>
+        ) : null}
       </div>
 
       <Button value={"Sign in"} type={"primary"} handler={onSubmit} />
+      <h4>
+        Don’t have an account?{" "}
+        <span className={styles.link} onClick={() => navigate("/signup")}>
+          Sign Up
+        </span>
+      </h4>
     </form>
   );
 };
