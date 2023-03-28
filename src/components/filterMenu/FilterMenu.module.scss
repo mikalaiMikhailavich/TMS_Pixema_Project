@@ -25,6 +25,7 @@
 
 .filterForm {
   position: absolute;
+  overflow-y: scroll;
   top: 0;
   right: 0;
   display: flex;
