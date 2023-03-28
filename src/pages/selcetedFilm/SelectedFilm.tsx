@@ -19,15 +19,14 @@ import styles from "./SelectedFilm.module.scss";
 
 const SelectedFilm = () => {
   const params = useParams();
-  const cardId = params.id;
+  const cardId = params.id as string;
   const favorites = useAppSelector((state) => state.favorites.favorites);
   const dispatch = useAppDispatch();
+  const { data, isFetching, isError } = useGetFilmsByIdQuery(cardId);
 
   if (cardId === undefined) {
     return null;
   }
-
-  const { data, isFetching, isError } = useGetFilmsByIdQuery(cardId);
 
   if (isFetching) {
     return <h1>Loading</h1>;
